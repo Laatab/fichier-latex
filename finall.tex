@@ -1,0 +1,1279 @@
+\documentclass[12pt]{report}
+%\usepackage[hmargin=2cm,vmargin=2cm]{geometry}    		%%%%%%%%%%% marges horizontales et verticales
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{layout}
+\usepackage[francais]{babel}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+
+
+\usepackage{kpfonts}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,shapes.symbols,shadows,calc}
+\usepackage[explicit,calcwidth]{titlesec}
+\usepackage{titletoc}
+\usepackage{xcolor}
+\usepackage{ifthen}
+\contentsmargin{0cm}
+
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{caption}
+\usepackage{mathrsfs}
+\usepackage{ae,aecompl}
+\usepackage{moreverb}
+\usepackage{nopageno}
+\usepackage{tcolorbox}
+\usepackage[hidelinks,breaklinks=true,pdfusetitle,pdfsubject={Gestion y Desarrollo Social}]{hyperref}
+%\usepackage{hyperref} % avec les carre rouge 
+
+%\usepackage{num les page}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{blindtext}
+\fancypagestyle{plain}{
+\fancyhf{}
+\cfoot{\thepage\,$|$\,\pageref{LastPage}}}
+\pagestyle{plain}
+%\usepackage{lstlisting}
+
+%----------------------------------------------------
+
+
+
+\newtheorem{thm}{\textbf{\textit{Th\'eor\`eme}}}[section]
+\newtheorem{df}[thm]{\textit{\textbf{D\'efinition}}}
+\newtheorem{cor}[thm]{\textbf{\textit{Corolaire}}}
+\newtheorem{lem}[thm]{\textbf{\textit{Lemme}}}
+\newtheorem{prop}[thm]{\textit{\textbf{Proposition}}}
+\newtheorem{prt}[thm]{\textit{\textbf{Propri\'eet\'ees}}}
+\newtheorem{rem}[thm]{\textbf{\textit{Remarque}}}
+\newtheorem{expl}[thm]{\textbf{\textit{Exemple}}}
+\newtheorem{dem}[thm]{\textbf{\textit{D\'emonstration}}}
+
+%----------------------------------------------------
+\newcommand{\Nn}{{\mathbb N}}
+\newcommand{\Rr}{{\mathbb R}}
+\usepackage[Lenny]{fncychap}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tab des math%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%===========================================
+\definecolor{doc}{RGB}{0,60,110}
+\definecolor{mybluei}{RGB}{5, 0, 100}
+\definecolor{myblueii}{RGB}{0, 0, 100}
+\definecolor{mybluei2}{RGB}{0,173,239}
+\definecolor{myblueii2}{RGB}{63,200,244}
+\definecolor{myblueiii}{RGB}{199,234,253}
+\definecolor{myblue}{RGB}{0,82,155}
+\definecolor{mybluei3}{RGB}{0,173,239}
+\definecolor{winered}{rgb}{0.5,0,0}
+\definecolor{bule}{RGB}{18,29,57}
+\definecolor{doc}{RGB}{0,60,110}
+\definecolor{denim}{rgb}{0.08, 0.38, 0.74}
+\definecolor{ufla_blue}{HTML}{224271}
+\definecolor{chaptercolor}{rgb}{0.36,0.73,0.82}
+\definecolor{MainRed}{rgb}{.6, .1, .1}
+\definecolor{GoldDecoration}{RGB}{170, 120, 70}
+\definecolor{gray}{RGB}{236,236,236}
+\definecolor{ugentblauw}{cmyk}{1 0.8 0.3 0.05}
+\def\chpcolor{blue!45}
+\def\chpcolortxt{blue!60}
+\definecolor{outrageousorange}{rgb}{1.0, 0.43, 0.29}
+\definecolor{definitioncolor}{gray}{0.65}
+\definecolor{clight2}{RGB}{212, 237, 244}
+\definecolor{clight1}{RGB}{138, 208, 248}
+\definecolor{clight}{RGB}{237, 244, 248}
+\definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
+\definecolor{mybluei}{RGB}{5, 0, 100}
+\definecolor{myblueii}{RGB}{0, 0, 100}
+\definecolor{main}{RGB}{0,120,2}
+\definecolor{second}{RGB}{230,90,7}
+\definecolor{third}{RGB}{0,160,152}
+\definecolor{myblueii5}{RGB}{63,200,244}
+\definecolor{myblueii6}{RGB}{63,200,244}
+%===========================================
+\makeatletter
+\tikzset{
+button/.style={text=white,draw=#1!50!black,
+preaction={drop shadow={shadow scale=1.05,shadow xshift=0pt,shadow yshift=-1pt}},
+top color=#1!10,bottom color=#1!50!black,inner xsep=2ex,inner ysep=1.6ex},
+plastic/.style={button=#1,shape=rectangle,rounded corners=1.6ex},
+oval/.style={button=#1,shape=rectangle,rounded corners=1ex,ball color=#1},
+any size/.style={button=#1,shape=ellipse,inner xsep=1ex, inner ysep=1ex},
+slick/.style={button=#1,shape=tape,tape bend height=1ex,inner sep=1ex},
+candy wrap/.style={button=#1,shape=rectangle,rounded corners=5ex},
+smooth/.style={button=#1,shape=rectangle,rounded corners=2ex,
+top color=#1!50!black,shading angle=45,bottom color=#1!10}}
+%===========================================
+\titlecontents{chapter}[0pc]
+{\addvspace{0pt}}%
+{\begin{tikzpicture}[remember picture, overlay]%
+\node[oval=red] at (1,0.25) {\color{white}\Large\sc\bfseries \thecontentslabel};
+\end{tikzpicture}
+\hspace{3cm}\color{red!70!black}\LARGE\sc\bfseries}
+{\color{doc!40}\large\sc\bfseries}
+{}%
+\titlecontents{section}[8pc]
+{\addvspace{20pt}\color{mybluei}}
+{\begin{tikzpicture}[remember picture, overlay]%
+\node[smooth=blue] at (-1,0.25) {\color{white}\Large\sc\bfseries section\ \thecontentslabel};
+\end{tikzpicture}
+\hspace{1cm}\Large\sc\bfseries}
+{}
+{\dotfill\small \thecontentspage}
+[]
+\titlecontents{subsection}[15pc]
+{\addvspace{8pt}\color{main}}
+{\contentslabel[\thecontentslabel]{2.4pc}}
+{}
+{\dotfill\small \thecontentspage}
+[]
+\makeatletter
+\renewcommand{\tableofcontents}{%
+\chapter*{%
+\vspace*{-100\p@}%
+\begin{tikzpicture}[remember picture, overlay]%
+\fill[red!20] (current page.north west) rectangle %
+($(current page.north east)+(0,-1.5)$);
+\draw[red,line width=2pt] ($(current page.north west)+(0,-1.5)$)--
+($(current page.north east)+(0,-1.5)$);
+\fill[red!70!black]($(current page.north west)+(5.5,0)$)--++(10,0){[rounded corners=10pt]--++(0,-2)--++(-10,0)}--cycle {};
+\node[font=\color{white}\Huge\sc\bfseries,align=center] at ($(current page.north west)+(11,-1.25)$) {\contentsname};
+\end{tikzpicture}}%
+\@starttoc{toc}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%% Page de Titre %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\begin{center}
+
+\vfill
+\includegraphics[width=0.75\textwidth]{uit.jpg}
+
+%\vspace{1cm}
+
+\large{\textbf{Universit\'e Ibn Tofail\\
+Facult\'e des sciences\\
+D\'epartement de Math\'eematiques
+}}
+\vfill
+\vfill
+%\begin{flushright}
+%Num\'ero d'ordre :.........
+%\end{flushright}
+\textbf{Projet de Fin d'\'etudes pour l'obtention du dipl\^ome de licence fondamental en science math\'ematique applique \\
+\vfill
+\underline{sous le th\'eme :}}
+\vfill
+\fbox{
+\begin{minipage}{0.9\textwidth}
+\centering \Large\textbf{Th\'eor\`eme de point fixe et application}
+\end{minipage}
+}
+
+\vfill
+
+\large{\textbf{r\'ealis\'e par :}}
+%\textbf{Par:}
+
+\textbf{ LAATABI Mohamed Najib  }
+
+\vspace{1.5cm}
+
+\underline{Encadr\'e par :}
+
+\textbf{ Monsieur SRHIR Ahmed}
+
+\vfill
+
+
+%Soutenu le : 24 juin 2022
+\end{center}
+
+\vfill
+
+%\noindent Devant les jur\'es :
+
+
+\bigskip
+
+\begin{tabular}{ll}
+%Prof. SRHIR Ahmed & Professeur \`a la Facult\'e Des science K\'enitra\\
+%Prof. Pr\'enom Nom & Professeur \`a la Facult\'e Des science K\'enitra
+\end{tabular}
+
+\vfill
+\begin{center}
+\emph{Ann\'ee Universitaire : 2021-2022}
+\end{center}
+
+\tableofcontents
+\vfill
+
+%\tableofcontents
+%\listoffigures
+%\listoftables
+\chapter*{Remerciements}
+Je tiens tout d'abord \`a exprimer mes remerciements \`a tous les membres de la  Facult\'e Des science Ibn Tofail.\\ 
+
+je remercie tout particuli\`erement mon encadrant de m\'emoire de fin d'\'etude Monsieur \textbf{ SRHIR Ahmed}, qui m'a apport\'e une aide continuelle et efficace tout au long de mon travail. Il m'a donn\'e beaucoup d'intonation et des propositions pour guider mon m\'emoire et il a montr\'e en tout temps une disponibilit\'e et a r\'epondu \`a toutes mes questions .\\
+
+ Je pr\'esente aussi mes profonds respects et mes reconnaissances \`a tous les professeurs de la facult\'e qui nous ont fourni tous les renseignements n\'ecessaires et qui n'ont \'epargn\'e aucun effort pour que cette \'etude se d\'eroule dans les meilleures conditions. \\
+ 
+Aussi, je veux remercier ma famille, mes parents, mon fr\`ere  qui m'ont soutenu pendant cette ann\'ee de formation, et sans eux je n'aurais pas pu aller au bout de mon travail. \\
+
+\textbf{ \`A vous tous, merci !}
+
+
+\chapter*{Introduction g\'en\'erale:}
+Dans ce m\'emoire, on \'etudie quelques th\'eor\`emes du point fixe de Banach, Brouwer et Schauder  et quelques-unes de leurs applications. Etant donn\'es un ensemble $M$ et une application $T: M \rightarrow M$, on s'int\'eresse \`a donner des conditions suffisantes sur $T$ et $M$ pour que $T$ ait un point fixe. Ces r\'esultats th\'eoriques nous permettent de r\'esoudre certains probl\`emes comme par exemple trouver les z\'eros d'un polyn\^eme, ou prouver que certaines \'equations diff\'erentielles admettent des solutions sans les d\'eterminer explicitement.\\
+
+Le th\'eor\`eme de l'application contractante prouv\'e par Banach en 1922 dit qu'une contraction d'un espace m\'etrique complet dans lui-m\^eme admet un point fixe unique. De plus, il fournit un algorithme d'approximation du point fixe comme limite d'une suite it\'er\'ee. Mais d'une part, montrer que la fonction est contractante peut entra\^iner de laborieux calculs, d'autre part, les conditions sur la fonction et l'espace \'etudi\'es restreignent le nombre de cas auxquels on peut appliquer le th\'eor\`eme.\\
+
+Le th\'eor\`eme du point fixe de Brouwer est un r\'esultat de topologie alg\'ebrique, sous sa forme la plus simple, ce th\'eor\`eme exige uniquement la continuit\'e de l'application d'un intervalle ferm\'e born\'e dans lui-m\^eme. Et de fa\c con plus g\'en\'erale, l'application continue doit \^etre d\'efinie dans un convexe compact d'un espace euclidien dans lui-m\^eme.\\
+
+Le th\'eor\`eme du point fixe de Schauder \'etabli en 1930, est une g\'en\'eralisation du th\'eor\`eme du point fixe de Brouwer et affirme qu'une application continue sur un convexe compact admet un point fixe, qui n'est pas n\'ecessairement unique. Il n'est donc pas n\'ecessaire d'\'etablir des estim\'ees sur la fonction, mais simplement sa continuit\'e.
+Ceci nous donne la possibilit\'e de traiter plus de cas qu'avec le th\'eor\`eme de Banach (par exemple, l'identit\'e).\\
+
+Ce travail est r\'eparti en trois parties :\\
+la premier partie est d\'edi\'e \`a rappeler quelques d\'efinitions et propret\'es  que vous utiliserez pour expliquer et simplifier ce sujet ( d\'efinition de l'espace  m\'etrique, les suites et la continuit\'e des fonctions ...).\\
+
+Dans la deuxi\`eme partie nous discuterons th\'eor\`eme de point fixe de Banach  et leurs applications par exemple de chercher l'existence et l'unicit\'e des solutions d'une \'equation diff\'erentielle (probl\`eme de Cauchy-lipschitz )  et aussi pour d\'emontrer th\'eor\`eme d'inversion locale.\\
+
+Enfin on \'etudie le th\'eor\`eme du point fixe de Brouwer-schauder pour les fonctions qui n'est pas lipschitzien par exemple de  d\'emontre l'existence des solutions d'un probl\`eme de Cauchy. 
+%\part{Rappel sur l'espace m\'etrique et l'espace de Banach}
+
+\chapter{Rappel sur l'espace m\'etrique et l'espace de Banach}
+
+\section{Espace m\'etrique:}
+La notion d'espace m\'etrique sert \'e \'etendre la notion de limite, une des notions les
+plus importantes des math\'ematiques, \'a des espaces plus g\'en\'eraux que $\mathbb{R}$ ou $\mathbb{R}^n$.Dans  $\mathbb{R}$ on dit que $ x_{n} $ tend vers $x$ si $| x_{n} - x |$ tend vers $0$ (ce qu'on pr\'ecise avec des $\forall \epsilon>0 ,\exists n_{0}\in\mathbb{N}$,...).Sur un ensemble $E$,on va associer \'a chaque couple $(x,y)$ d'\'el\'ements de $E$ un nombre positive $d(x,y)\geq0$ (la distance de $x$ \'a $y$),$d$ ob\'eissant \'a certains axiomes.On dira que $x_{n}$ tend vers $x$ si $d(x_{n},x)$ tend vers $0$. On appellera le couple $(E,d)$ un espace m\'etrique.   
+\begin{df}
+Une \textbf{ distance }ou (\textbf{m\'etrique }) sur ensemble $E$ est une application\\
+\begin{center}
+$\begin{array}{ccccc}
+d & : & E\times E & \to &\mathbb{R}_{+} \\
+ & & (x,y) & \mapsto & d(x,y) \\
+\end{array}$
+\end{center}
+v\'erifaint, pour tout x,y et z, les trois axiomes suivants :\\
+\qquad (i) \textbf{S\'eparation } : $d(x,y)= 0$ si et seulement si $x = y$\\
+\qquad (ii) \textbf{Sym\'etrie} : $d(x,y)=d(y,y)$\\
+\qquad (iii) \textbf{In\'egalit\'e triangulaire} : $d(x,y)\leq d(x,z)+d(z,y)$\\
+Le couple $(E,d)$ forme d'un ensemble $E$ et d'une distance $d$ est appel\'e espace m\'etrique.
+\end{df}
+\begin{expl}
+\qquad(a) L'application :$\begin{array}{ccccc}
+ & & (x,y) & \mapsto & \lvert x-y \rvert \end{array}$ d\'efine une distance sur $\mathbb{R}$ appel\'ee distance usuelle et $\mathbb{R}$ muni de cette distance est un espace m\'etrique.\\
+ \qquad(b) L'application :$\begin{array}{ccccc}
+ & & (z,z') & \mapsto & \lvert z-z' \rvert \end{array}$,d\'efinit une distance sur$\mathbb{C}$. Ainsi $\mathbb{C}$ muni de cette distance est un espace m\'etrique.\\
+ \qquad(c) Pour $x=(x_{1},x_{2},...,x_{n})\in\mathbb{R}^{n}$ et $y=(y_{1},y_{2},...,y_{n})\in\mathbb{R}^{n}$, les application suivants :\\
+ \qquad(i) $d_{1}(x,y)=\sum\limits_{i=1}^n \lvert x_{i}-y_{i} \rvert$\\
+ \qquad(ii)$d_{2}(x,y)=\sqrt{\sum\limits_{i=1}^n \lvert x_{i}-y_{i} \rvert^{2}}$\\
+ \qquad(iii)$d_{\infty}(x,y)=\max_{i \in\{1,2,...,n\}}\lvert x_{i}-y_{i} \rvert$\\
+ d\'efinissent des distance sur $\mathbb{R}^{n}$ \\
+ La distance $d_{2}$ s'appelle \textbf{distance euclidienne }.\\
+ (d)on peut d\'efinir une distance ,dit \textbf{discr\`ete}, sur un ensemble non vide $\mathbb{E}$,\\ en posant, pour(x,y) $\in\mathbb{E} $ :$$d(x, y)= \begin{cases}0 & \text { si } x=y \\ 1 & \text { si } x \neq y\end{cases}$$\\
+ (e) Sur $C([a ; b], \mathbb{R})=\{f:[a ; b] \longrightarrow \mathbb{R} / f$ est continue $\}$ o\`u $a<b$ sont des r\'eel, on d\'efinit une distance comme suit :\\
+ $$
+\forall f, g \in C([a ; b], \mathbb{R}): d_{\infty}(f, g)=\sup _{x \in[a ; b]}|f(x)-f(y)|
+$$
+cette distance est app\'el\'ee \textbf{distance de la convergence uniforme}.
+\end{expl}
+ \begin{prop} Soit $(E,d)$ un espace m\'etrique. Alors:\\
+ 1) $\forall(x, y, z) \in E^{3},|d(x, y)-d(y, z)| \leqslant d(x, z)$ (\textbf{in\'egalit\'e triangulaire renvers\`ee}).\\
+ 2) $\forall\left(x_{1}, \ldots, x_{n}\right) \in E^{n}, d\left(x_{1}, x_{n}\right) \leqslant d\left(x_{1}, x_{2}\right)+\ldots+d\left(x_{n-1}, x_{n}\right)$.\\
+ 3) Pour tout $\lambda \in \mathbb{R}_{+}^{\star}, \lambda$ d est une distance sur $E$.
+ \end{prop}
+\begin{dem}
+1) D'apr\`es l'in\'egalit\'e triangulaire, on a pour tout\\ $(x, y, z) \in E^{3}$
+$$
+d(x, y) \leqslant d(x, z)+d(y, z) \text { et } d(y, z) \leqslant d(x, y)+d(x, z)
+$$
+D'o\'u pour tout $(x, y, z) \in E^{3}$, on a\\
+$$
+d(x, y)-d(y, z) \leqslant d(x, z) \text { et }-d(x, z) \leqslant d(x, y)-d(y, z)
+$$
+2) Par r\'ecurrence sur n:
+\end{dem}
+\begin{df}
+Soit $E$ un ensemble et $d$ et $d'$ deux distance sur $E$. On dit que $d$ et $d'$ sont \'equivalentes s'il existe deux constante $\alpha>0$ et $\beta>0$ tels que \\
+$$
+\forall(x, y) \in E^{2}, \alpha d(x, y) \leqslant d^{\prime}(x, y) \leqslant \beta d(x, y)
+$$
+\end{df}
+\begin{expl}
+Les distance $d_{1},d_{2}$ et $d_{\infty}$ sur $\mathbb{R}^{n}$ sont deux \`a deux \'eqivalentes. En effet, on a \\
+$$
+\forall x \in \mathbb{R}^{n}, \frac{1}{n}\|x\|_{1} \leqslant\|x\|_{\infty} \leqslant\|x\|_{2} \leqslant\|x\|_{1} \leqslant \sqrt{n}\|x\|_{2} \leqslant n\|x\|_{\infty}
+$$
+$\forall x,y \in \mathbb{R}^{n},\|x-y\|_{1}=d_{1}(x, y),$
+$\|x-y\|_{2}=d_{2}(x, y),$
+$\|x-y\|_{\infty}=d_{\infty}(x, y)$\\
+D'o\`u\\
+$$
+\forall(x, y) \in \mathbb{R}^{n} \times \mathbb{R}^{n}, \frac{1}{n} d_{1}(x, y) \leqslant d_{\infty}(x, y) \leqslant d_{1}(x, y) \text { et } d_{\infty}(x, y) \leqslant d_{2}(x, y) \leqslant \sqrt{n} d_{\infty}(x, y)
+$$
+\end{expl}
+\begin{df}{\normalsize(distance induite)}
+Soit $(E,d)$ un espace m\'etrique et $A\subseteq E$ une partie de $E$. Alors l'application $d_{\mid A \times A}: A \times A \longrightarrow \mathbb{R}^{+}$ est distance sur $A$. C'est la distance induite sur $A$ par $d$ et on note $d_{A}$
+\end{df}
+\begin{df}
+Soit $(E_{1},d_{1})$ ....$(E_{n},d_{n})$ des espace m\'etrique. Alors l'application \\
+$$
+d_{\infty}: E \times E \longrightarrow \mathbb{R}^{+},(x, y) \longmapsto d_{\infty}(x, y)=\max \left\{d_{1}\left(x_{1}, y_{1}\right), \ldots, d_{n}\left(x_{n}, y_{n}\right)\right\}
+$$
+est une distance sur $E=E_{1} \times ....\times E_{n}$. C'est la distance produit \\
+On peut aussi d\'efinir sur $E$ les distance $d_{1}(x, y)=\sum_{i=1}^{n} d_{i}\left(x_{i}, y_{i}\right)$ et $d_{2}=(x, y)=\left(\sum_{i=1}^{n} d_{i}\left(x_{i}, y_{i}\right)^{2}\right)^{1 / 2}$. 
+\end{df}
+\section{Topologie des espace m\'etrique}
+\begin{df}
+Soit $(E,d)$ un espace m\'etrique,$a\in E$ et $r>0$. On appelle boule ouverte (resp.ferm\'ee) de centre $a$ et de rayon $r$, la partie d\'efine par\\
+$$
+\left.B(a, r)=\{x \in E \mid d(x, a)<r\} \text { (resp. } B_{f}(a, r)=\{x \in E \mid d(x, a) \leqslant r\}\right)
+$$
+\end{df}
+\begin{expl}
+1)Soit l'espace m\'etrique $\mathbb{R}$ muni de sa distance usuelle, $a\in \mathbb{R}$ et $r>0$. Alors on a\\
+$$
+B(a, r)=] a-r, a+r\left[\text { et } B_{f}(a, r)=[a-r, a+r] .\right.
+$$
+2) Soit l'espace m\'etrique $\left(\mathbb{R}^{2}, d_{1}\right), a \in \mathbb{R}^{2}$ et $r>0$. Alors $B(a, r)=L(a, r)$\\
+3) Soit l'espace m\'etrique$\left(\mathbb{R}^{2}, d_{2}\right), a \in \mathbb{R}^{2}$ et $r>0$. Alors $B(a, r)=D(a, r)$\\
+4) Soit l'espace m\'etrique$\left(\mathbb{R}^{2}, d_{\infty}\right), a \in \mathbb{R}^{2}$ et $r>0$. Alors $B(a, r)=C(a, r)$\\
+\begin{center}
+    %\includegraphics[width=0.75\textwidth]{BOUL.jpg}
+\end{center}
+% On voit bien que la forme des boules d\'epende beaucoup de la distance choisie.
+\end{expl}
+\begin{rem}
+Soit $(E,d)$ est un espace m\'etrique, $a\in E$ et $r>0$.
+1) On appelle sph\`ere de centre $a$ et de rayon $r$, la partie de $E$ d\'efinie par $S=\{x\in E\mid d(x,a)=r\}$\\
+2) Pour $0<r<r'$; on a $B(a,r)\subset B(a,r')$.
+\end{rem}
+\begin{df}
+Soit $(E,d)$ un espace m\'etrique et $O\subseteq E$ une partie de $E$. On dit que $O$ est un ouvert si\\
+\begin{center}
+$\forall x\in O, \exists r>0 $ tel que $B(x,r)\subset O$
+\end{center}
+\end{df}
+\begin{expl}
+1)Soit $(E,d)$ un espace m\'etrique. Alors tout boule ouverte est un ouverte. En effet, soit $a\in E$ et $r>0$. soit $x\in B(a,r)$. Posons $\rho=r-d(a,x)$.par d\'efinition, on a $d(a,x)<r$. Donc $\rho >0$. Soit $y\in B(x,\rho)$. Donc $d(x,y)<\rho$. i.e. $d(x,y)<r-d(a,x)$. D'o\`u $d(a,x)+d(x,y)<r$. D'apr\`es l'in\'egalit\'e triangulaire; on a $d(a,y)<r$. Par suite, $B(x;r)\subset B(a,r)$ et $B(a,r)$ est un ouverte.
+\end{expl}
+\begin{df}
+ Soient $(E, d)$ un espace m\'etrique et $F \subseteq E$ une partie de $E$. On dit que $F$ est un ferm\'e de $E$ si son compl\'ementaire $E \backslash F$ est un ouvert de $E$.
+\end{df}
+\begin{expl}
+ Soit $(E, d)$ un espace m\'etrique. Alors\\
+1) L'ensembe vide $\emptyset$ et $E$ sont des ferm\'es de $E$.\\
+2) Toute boule ferm\'ee de $E$ est un ferm\'e. En effet, soient $a \in E$ et $r>0$. Soit $x \in E \backslash B_{f}(a, r)$. On a donc $d(x, a)>r$. On pose $\rho=d(x, a)-r$. Alors $\rho>0$. Montrons que $B(x, \rho) \subset E \backslash B_{f}(a, r)$. Soit $y \in B(x, \rho)$. Donc $d(x, y)<\rho$. D'o\`u $d(x, y)<d(x, a)-r$. D'apr\`es l'in\'egalit\'e triangulaire renvers\'ee, il vient que $r<d(x, a)-d(x, y) \leqslant d(a, y)$. D'o\`u le r\'esultat.
+\end{expl}
+ \begin{df}
+  Soient $(E, d)$ un espace m\'etrique, $V \subset E$ une partie de $E$ et $a \in E$. On dit que $V$ est un voisinage de $a$ s'il existe un ouvert $O$ de $E$ tel que $a \in O \subset V$.
+  \end{df}
+ % \begin{df} Soient $(E, d)$ un espace m\'etrique, $A \subseteq E$ une partie de $E$ et $a \in E$.\\
+%1) On dit que $a$ est adh\'erent \`a  $A$ si pour tout $r>0, B(a, r) \cap A \neq \emptyset$.\\
+%2) On dit que $a$ est un point d'accumulation de $A$ si pour tout $r>0, B(a, r) \cap(A \backslash\{a\}) \neq \emptyset$.\\
+%3) On dit que $a$ est un point isol\'e de $A$ s'il existe $r>0$ tel que $B(a, r) \cap A=\{a\}$.\\
+%4) On dit que $a$ est un point int\'erieur \`a $A$ s'il existe $r>0$ tel que $B(a, r) \subset A$.\\
+%5) On dit que $a$ est un point ext\'erieur \`a $A$ si $a$ est un point int\'erieur au compl\'ementaire $E \backslash A$ de $A$. C'est-\`a-dire s'il existe $r>0$ tel que $B(a, r) \cap A=\emptyset$.\\
+%6) On appelle adh\'erence de $A$ et on note $\bar{A}$ l'ensemble de tous les points de $E$ qui sont adh\'erents \`a $A$.\\
+%7) On appelle int\'erieur de $A$ et on note $\stackrel{\circ}{A}$  l'ensemble de tous les points de $E$ qui sont int\'erieurs \`a $A$.\\
+%8) On appelle fronti\`ere de $A$ et on note $\operatorname{Fr}(A)$ (ou $\partial A$ ) la partie de $E$ d\'efinie par\\ $\operatorname{Fr}(A)=\bar{A}\setminus \stackrel{\circ}{A} $.
+%\end{df}
+\section{Suites dans les espaces m\'etriques}
+$(E, d)$ d\'esigne un espace m\'etrique.
+Une suite de $E$ est la donn\'ee d'une application $u: \mathbb{N} \rightarrow E$. la fonction $u$ est not\'ee $\left(u_{n}\right)$ et les suites sont not\'ees $\left(a_{n}\right),\left(b_{n}\right), . .,\left(x_{n}\right), \ldots$
+\subsection{Convergence:}
+\begin{df}(Convergence de suites)\\
+Une suite $\left(x_{n}\right)$ de $(E, d)$ est dite convergente vers $\ell \in E$ si
+$$
+\forall \varepsilon>0, \exists n_{0} \in \mathbb{N}, \forall n \geqslant n_{0}, d\left(x_{n}, \ell\right) \leqslant \varepsilon
+$$
+qui est \'equvalent \`a
+$$
+\forall \varepsilon>0, \exists n_{0} \in \mathbb{N}, \forall n \geqslant n_{0}, x_{n} \in B(\ell, \varepsilon)
+$$
+Une suite qui n'est convergente vers aucun $\ell \in E$ est dite divergente.\\
+On appelle cet \'el\'ement de $E$ la limite de la suite $\left(x_{n}\right)$.
+Notations $: x_{n} \rightarrow \ell$ ou $\lim _{n \rightarrow+\infty} x_{n}=\ell$.
+\end{df}
+\begin{thm}(unicit\'e de la limite)\\
+$$
+\text { Si }\left(x_{n}\right) \text { est une suite convergente vers } \ell \text { et vers } \ell^{\prime} \text {, alors } \ell=\ell^{\prime} \text {. }
+$$
+\end{thm}
+\begin{dem}
+Supposons que $\left\{x_{n}\right\}_{n \geqslant 0}$ admettent deux limites $l, l^{\prime} \in E$. Soit $\varepsilon>0$. Comme $l=\lim _{n \rightarrow+\infty} x_{n}$, on a
+$$
+\exists n_{0} \in \mathbb{N}, \forall n \in \mathbb{N},\left(n \geqslant n_{0} \Longrightarrow d\left(x_{n}, l\right)<\varepsilon / 2\right)
+$$
+De m\^eme $l^{\prime}=\lim _{n \rightarrow+\infty} x_{n}$, donc
+$$
+\exists n_{1} \in \mathbb{N}, \forall n \in \mathbb{N},\left(n \geqslant n_{1} \Longrightarrow d\left(x_{n}, l^{\prime}\right)<\varepsilon / 2\right) .
+$$
+Posons $n_{2}=\max \left\{n_{0}, n_{1}\right\}$. Comme $n_{2} \geqslant n_{0}$ et $n_{2} \geqslant n_{1}$, on a $\left.d\left(x_{n_{2}}, l\right)<\varepsilon / 2\right)$ et $\left.d\left(x_{n_{2}}, l^{\prime}\right)<\varepsilon / 2\right)$. L'in\'egalit\'e triangulaire permet de d\'eduire que
+$$
+\forall \varepsilon>0, d\left(l, l^{\prime}\right)<\varepsilon .
+$$
+Ce qui montre que $l=l^{\prime}$.
+\end{dem}
+\subsection{Suites extraites ou sous-suites:}
+\begin{df}(sous-suites)\\
+ Soient $(E, d)$ un espace m\'etrique et $\left\{x_{n}\right\}_{n \geqslant 0}$ une suite de $E$. On appelle suite extraite (ou sous-suite) de $\left\{x_{n}\right\}_{n \geqslant 0}$ toute suite de $E$ de la forme $\left\{x_{\varphi(n)}\right\}$, avec $\varphi: \mathbb{N} \longrightarrow \mathbb{N}$ est strictement croissante.
+Il est clair que toute suite extraite d'une suite extraite de $\left(x_{n}\right)$ est aussi une suite extraite de $\left(x_{n}\right)$.
+\end{df}
+\begin{prop}
+Soit $(E, d)$ un espace m\'etrique et $\left(x_{n}\right) \subset E$ tel que $x_{n} \rightarrow \ell$. Alors toute sous-suite $\left(x_{\varphi(n)}\right)$ de $\left(x_{n}\right)$ converge vers $\ell .$
+\end{prop}
+\begin{dem}
+ Soit $\left\{x_{\varphi(n)}\right\}_{n \geqslant 0}$ une suite extraite de $E$. Puisque $l=\lim _{n \rightarrow+\infty} x_{n}$, on a
+$$
+\forall \varepsilon>0, \exists n_{0} \in \mathbb{N}, \forall n \in \mathbb{N},\left(n \geqslant n_{0} \Longrightarrow d\left(x_{n}, l\right)<\varepsilon\right)
+$$
+Comme l'application $\varphi: \mathbb{N} \longrightarrow \mathbb{N}$ est strictement croissante, il vient que
+$$
+\begin{aligned}
+\forall \varepsilon>0, \exists n_{0} \in \mathbb{N}, \forall n \in \mathbb{N}, n \geqslant n_{0} & \Longrightarrow \varphi(n) \geqslant \varphi\left(n_{0}\right) \\
+& \Longrightarrow \varphi(n) \geqslant n_{0} \\
+& \Longrightarrow d\left(x_{\varphi(n)}, l\right)<\varepsilon
+\end{aligned}
+$$
+Ce qui montre que $l=\lim _{n \rightarrow+\infty} x_{\varphi(n)}$.
+\end{dem}
+\subsection{Suites de Cauchy:}
+\begin{df}
+Soit $(E, d)$ un espace m\'etrique.
+On dit que la suite $\left(x_{n}\right)$ de points de $X$ est une suite de Cauchy (Augustin Louis Cauchy, Math\'ematicien fran\c cais, 1789-1857) dans $(E, d)$ si
+$$
+\forall \varepsilon>0 ; \exists n_{0} \text { tel que } \forall n ; m \geqslant n_{0} d\left(x_{n} ; x_{m}\right)<\varepsilon
+$$
+\end{df}
+\begin{rem}
+1. La d\'efinition est \'equivalente \`a
+$$
+\forall \varepsilon>0 ; \exists n_{0} \text { tel que } \forall n \geqslant n_{0}, \forall p \geqslant 0 \quad d\left(x_{n} ; x_{n+p}\right)<\varepsilon
+$$
+\end{rem}
+\begin{expl}
+ 1. Dans $\mathbb{R}$, la suite $\left(\frac{1}{n}\right)_{n \geqslant 1}$ est de Cauchy. Ce n'est pas le cas de la suite $\left(x_{n}=n\right)$.\\
+2. Si $E$ est discret, les suites de Cauchy dans $(E, d)$ sont les suites stationnaires.\\
+3. Toute suite convergente est de Cauchy. En effet, si $\lim _{n \rightarrow+\infty} x_{n}=a$, alors, \`a partir d'un certain rang
+$$
+d\left(x_{n} ; x_{m}\right) \leqslant d\left(x_{n} ; a\right)+d\left(a ; x_{m}\right)<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+$$
+\end{expl}
+\begin{df}(Densit\'e)\\
+$$
+\text { Soit }(E, d) \text { un espace m\'etrique. On dira que } F \subset E \text { est dense dans } E \text { si } \bar{F}=E \text {. }
+$$
+\end{df}
+\begin{expl}
+$$
+ \mathbb{Q} \text { est dense dans } \mathbb{R} \text { muni de sa distance standard. }
+$$
+\end{expl}
+\section{Espaces m\'etriques complets:}
+\begin{df}
+Soient $(E, d)$ un espace m\'etrique. On dit que $E$ est complet si toute suite de Cauchy de $E$ est convergente dans $E$.
+\end{df}
+\begin{expl}
+ Les espaces m\'etriques $(\mathbb{R},|\cdot|)$ et $(\mathbb{C},|\cdot|)$ sont complets.\\
+  2) L'espace m\'etrique $(\mathbb{Q},|\cdot|)$ n'est pas complet.
+ \end{expl}
+ \begin{rem}
+  Soient $(E, d)$ un espace m\'etrique et $A \subseteq E$ une partie de $E$. On dit que $A$ est compl\'ete si l'espace m\'etrique $\left(A, d_{A}\right)$ est complet.
+ \end{rem}
+ \begin{prop}
+  Soient $(E, d)$ un espace m\'etrique et $A \subseteq E$ une partie $E .$ Si A est compl\'ete. Alors A est un ferm\'e de $E$.
+  \end{prop}
+\begin{dem}
+Soit $x \in \bar{A}$. Alors il existe $\left\{x_{n}\right\}_{n \geqslant 0} \subset A$ tel que $\lim _{n \rightarrow+\infty} x_{n}=x$. Donc $\left\{x_{n}\right\}_{n \geqslant 0}$ est une suite de Cauchy de $A$. Or $A$ est compl\'ete. Donc $\lim _{n \rightarrow+\infty} x_{n}=y$, avec $y \in A$. L'unict\'e de la limite implique $x=y \in A$.
+\end{dem}
+\begin{expl}
+ Les parties $] a, b],] a, b[$, et $] a,+\infty[$ de $\mathbb{R}$ ne sont pas compl\'etes
+ \end{expl}
+ \begin{prop}
+ Soient $(E, d)$ un espace m\'etrique complet et A une partie de E.. Si A est ferm\'ee. Alors A est compl\'ete.
+ \end{prop}
+ \begin{dem}
+ Soit $\left\{x_{n}\right\}_{n \geqslant 0}$ une suite de Cauchy de $A$. Donc $\left\{x_{n}\right\}_{n \geqslant 0}$ est une suite de Cauchy de $E$ qui est complet. Donc $\left\{x_{n}\right\}_{n \geqslant 0}$ converge vers $x \in \bar{A}=A$ car $A$ est ferm\'ee.
+ \end{dem}
+ \begin{rem}
+  Dans un espace m\'etrique complet, les parties compl\'etes sont exactement les parties ferm\'ees.
+  \end{rem}
+\section{Espace de Banach:}
+Dans touts la suite on note $\mathbb{K} = \mathbb{R}  ou  \mathbb{C}$
+\subsection{Espace vectoriel norm\'e:}
+\begin{df}
+ Soit $E$ un $\mathbb{K}$-espace vectoriel ( $\mathbb{K}$-e.v. en abr\'eg\'e). Une norme sur $E$ est une application $\|\cdot\|: E \rightarrow \mathbb{R}_{+}$v\'erifiant les propri\'et\'es suivantes :\\
+i) $\forall x \in E, \forall \lambda \in \mathbb{K},\|\lambda x\|=|\lambda| \cdot\|x\|$ (Homog\'en\'eit\'e).\\
+ii) $\forall x, y \in E,\|x+y\| \leq\|x\|+\|y\|$ (In\'egalit\'e triangulaire).\\
+iii) $\forall x \in E,\|x\|=0 \Rightarrow x=0$ (S\'eparation).\\
+
+Le couple $(E,\|\cdot\|)$ est alors appel\'e espace vectoriel norm\'e (evn, en abr\'eg\'e).
+Une semi-norme est une application de $E$ vers $\mathbb{R}_{+}$qui v\'erifie les propri\'et\'es $(H)$ et $(T)$.
+\end{df}
+\begin{expl}
+La valeur absolue est une norme sur $\mathbb{K}$.
+2. Plus g\'en\'eralement, les applications suivantes d\'efinissent des normes sur $\mathbb{K}^{n}$, appel\'ees normes standards de $\mathbb{K}^{n}$ :
+$$
+\begin{aligned}
+\|X\|_{1} &=\sum_{k=1}^{n}\left|x_{k}\right| \\
+\|X\|_{2} &=\sqrt{\sum_{k=1}^{n}\left|x_{k}\right|^{2}} \\
+\|X\|_{\infty} &=\sup _{1 \leq k \leq n}\left|x_{k}\right|
+\end{aligned}
+$$
+o\`u $X=\left(x_{1}, \cdots, x_{n}\right) \in \mathbb{K}^{n}$.\\
+3. Soient $X$ un ensemble non vide et soit $E=\mathcal{B}(X, \mathbb{K})$ l'espace des fonctions d\'efinies sur $X$ \`a valeurs dans $\mathbb{K}$ et qui sont born\'ees. L'application
+$$
+f \mapsto\|f\|_{\infty}=\sup _{x \in X}|f(x)|
+$$
+d\'efinit une norme sur $X$, dite norme de la convergence uniforme sur $X$.
+\end{expl}
+\subsection{Topologie des espaces norm\'es:}
+Soit $(E,\|\cdot\|)$ un $\mathbb{K}$-evn. Alors l'application
+$$
+\begin{aligned}
+d: \quad E \times E & \rightarrow \mathbb{R}_{+} \\
+(x, y) & \mapsto\|x-y\|
+\end{aligned}
+$$
+est une distance sur $E$, c'est-\`a-dire qu'elle v\'erifie les propri\'et\'es suivantes :
+$$
+\left\{\begin{array}{lclll}
+\forall(x, y) \in E^{2}, & d(x, y)=0 & \Rightarrow & x=y, & \text { (S\'eparation). } \\
+\forall(x, y) \in E^{2}, & d(x, y) & = & d(y, x), & \text { (sym\'etrie). } \\
+\forall(x, y, z) \in E^{3}, & d(x, z) & \leq & d(x, y)+d(y, z), & \text { (In\'egalit\'e triangulaire). }
+\end{array}\right.
+$$
+est une distance sur $E$, c'est-\`a-dire qu'elle v\'erifie les propri\'et\'es suivantes:
+$d$ s'appelle la distance induite par la norme $\|.\|$. Un espace norm\'e est donc automatiquement un espace m\'etrique. La topologie associ\'ee \`a la distance $d$ est appel\'ee topologie de la norme :
+\subsection{Norme \'equivalente:}
+ Deux normes $\|\cdot\|_{1}$ et $\|\cdot\|_{2}$ sur un m\^eme $\mathbb{K}$-espace vectoriel $E$ sont \'equivalentes s'il existe deux r\'eels $\alpha>0$ et $\beta>0$ tels que:
+$$
+\forall x \in E, \alpha\|x\|_{2} \leq\|x\|_{1} \leq \beta\|x\|_{2} .
+$$
+On d\'efinit ainsi une relation d'\'equivalence (r\'eflexive, sym\'etrique et transitive) sur l'ensemble des normes d\'efinies sur un m\^eme $\mathbb{K}$-espace vectoriel $E$.
+\begin{thm}(l'\'equivalence des norme)\\
+Dans un espace norm\'e de dimension finie $E$ , toutes les normes sont \'equivalentes.
+\end{thm}
+\subsection{Espace de Banach:}
+\begin{df}
+On appelle espace de Banach tout espace vectoriel norm\'e complet (c'est-\`a-dire tout suite de Cauchy convergente dans cette espace).
+\end{df} 
+\begin{expl}
+1). L'espace $(\mathbb{K}^{n},\|.\|_{})$ est un espace de Banach.\\
+2). L'espace $\mathcal{C}([0,1], \mathbb{K})$ des fonctions num\'eriques continues sur $[0,1]$ muni de la norme $\|\cdot\|_{\infty}$ est un espace de Banach.\\
+En g\'enerale tout espace vectorielle norm\'e $(E,\|.\|_{E})$ de dimension fine et de Banach si le corps de $E$ est de Banach.\\
+\end{expl}
+\section{Fonctions d\'efinies sur un espace m\'etrique: }
+\subsection{Limites et continuit\'es:}
+\begin{df}
+ Soient $(E, d),\left(F, d^{\prime}\right)$ deux espaces m\'etriques, $D$ une partie de $E, a \in \bar{D}\\ f: D \subset E \longrightarrow F$ une fonction et $l \in F$. On dit que $f(x)$ tend vers $l$ quand $x$ tend vers $a$ suivant $D$ (ou $f$ a pour limite $l$ en $a$ ) si
+$$
+\forall \varepsilon>0, \exists \delta>0, \forall x \in D,\left(d(x, a)<\delta \Longrightarrow d^{\prime}(f(x), l)<\varepsilon\right)
+$$
+La d\'efinition se traduit de la fa\c con suivante : pour tout $\varepsilon>0$ (arbitrairement petit), il existe $\delta>0$ tel que, si la distance de $x$ \`a $a$ est inf\'erieure \'a $\delta$, alors la distance de $f(x)$ \`a $l$ est inf\'erieure \`a $\varepsilon$.
+\end{df}
+\begin{rem}
+ Avec les boules, la d\'efinition 1.6.1 est \'equivalente \`a :
+$$
+\forall \varepsilon>0, \exists \delta>0 \text { tel que } B(a, \delta) \cap D \subset f^{-1}\left(B^{\prime}(l, \varepsilon)\right)
+$$
+\end{rem}
+\begin{thm}(Unicit\'e de limite)\\
+ Si $f$ admet une limite l en a. Alors cette limite est n\'ecessairement unique. De plus, on a $l \in \overline{f(D)}$. On dit alors que l est la limite de fen a. On note alors $\lim _{\substack{x \rightarrow a \\ x \in D}} f(x)=l$.
+ \end{thm}
+ \begin{dem}
+Supposons que $f$ admettent deux limites $l, l^{\prime} \in F$. Soit $\varepsilon>0$. Comme $l=\lim _{x \rightarrow a} f(x)$, on a
+$$
+\exists \delta_{0}>0, \forall x \in D,\left(d(x, a)<\delta_{0} \Longrightarrow d^{\prime}(f(x), l)<\frac{\varepsilon}{2}\right)
+$$
+De m\^me $l^{\prime}=\lim _{x \rightarrow a} f(x)$, donc
+$$
+\exists \delta_{1}>0, \forall x \in D,\left(d(x, a)<\delta_{1} \Longrightarrow d^{\prime}\left(f(x), l^{\prime}\right)<\frac{\varepsilon}{2}\right)
+$$
+Posons $\delta_{2}=\min \left\{\delta_{0}, \delta_{1}\right\}$. Soit $x_{0} \in D \cap B\left(a, \delta_{2}\right)$. Comme $\delta_{2} \leqslant \delta_{0}$ et $\delta_{2} \leqslant \delta_{1}$, on a $d\left(x_{0}, a\right)<\delta_{0}$ et $d\left(x_{0}, a\right)<\delta_{1}$. D'o\`u $d^{\prime}\left(f\left(x_{0}\right), l\right)<\varepsilon / 2$ et $d^{\prime}\left(f\left(x_{0}\right), l\right)<\varepsilon / 2$. L'in\'egalit\'e triangulaire permet de d\'eduire que
+$$
+\forall \varepsilon>0, d\left(l, l^{\prime}\right)<\varepsilon
+$$
+Ce qui montre que $l=l^{\prime}$.
+ \end{dem}
+ \begin{thm}(caract\'erisation s\'equentielle de la limite).\\
+  Soient $(E, d),\left(F, d^{\prime}\right)$ deux espaces m\'etriques, $D$ une partie de $E, a \in \bar{D}, f: D \rightarrow F$ une fonction et $l \in F$. Alors $l=\lim _{x \rightarrow a} f(x)$ si, et seulement si pour toute suite $\left\{x_{n}\right\}_{n \geqslant 0}$ de $D$ qui converge vers a, la suite $\left\{f\left(x_{n}\right)\right\}_{n \geqslant 0}$ converge vers $l$.
+ \end{thm}
+ \begin{dem}
+ $\Longrightarrow$ ) Supposons que $\lim _{x \rightarrow a} f(x)=l$. Soit $\left\{x_{n}\right\}_{n \geqslant 0}$ une suite de $D$ telle que $\lim _{x \rightarrow+\infty} x_{n}=a$. Montrons que $\lim _{x \rightarrow a} f(x)=l$. Soit $\varepsilon>0$. Puisque $l=\lim _{x \rightarrow a} f(x)$, on a
+$$
+\exists \delta>0, \forall x \in D,\left(d(x, a)<\delta \Longrightarrow d^{\prime}(f(x), l)<\varepsilon\right)
+$$
+Puisque $a=\lim _{n \rightarrow+\infty} x_{n}$, on a aussi
+$$
+\begin{aligned}
+\exists n_{0} \in \mathbb{N}, \forall n \in \mathbb{N}\left(n \geqslant n_{0}\right.& \Longrightarrow d\left(x_{n}, a\right)<\delta \\
+& \Longrightarrow d^{\prime}\left(f\left(x_{n}\right), l\right)<\varepsilon
+\end{aligned}
+$$
+D'o\`u $\lim _{n \rightarrow+\infty} f\left(x_{n}\right)=l$.\\
+$\Longleftarrow)$ Supposons par l'absurde que $l$ n'est pas la limite de $f$ en $a$. Donc
+$$
+\exists \varepsilon>0, \forall \delta>0, \exists x \in D \text { tel que }\left(d(x, a)<\delta \text { et } d^{\prime}(f(x), l)>\varepsilon\right) .
+$$
+On en d\'eduit que
+$$
+\exists \varepsilon>0, \forall n \geqslant 0, \exists x_{n} \in D \text { tel que }\left(d\left(x_{n}, a\right)<1 / n \text { et } d^{\prime}\left(f\left(x_{n}\right), l\right)>\varepsilon\right)
+$$
+Il vient que $\lim _{n \rightarrow+\infty} x_{n}=a$ et $\left\{f\left(x_{n}\right)\right\}_{n \geqslant 0}$ ne converge pas vers $l$. Contradiction.
+ \end{dem}
+ \begin{df}
+ Soient $(E, d),\left(F, d^{\prime}\right)$ deux espaces m\'etriques, $D \subseteq E$ un ouvert de $E, a \in D$ et $f: D \longrightarrow F$ une fonction.\\
+1) On dit que $f$ est continue en $a$ si $\lim _{x \rightarrow a} f(x)$ existe, i.e. si $\lim _{x \rightarrow a} f(x)=f(a)$, ce qui signifie que
+$$
+\forall \varepsilon>0, \exists \delta>0, \forall x \in D,\left(d(x, a)<\delta \Longrightarrow d^{\prime}(f(x), f(a))<\varepsilon\right)
+$$
+2) On dit que $f$ est continue sur $D$ si $f$ est continue en tout point de $D$.
+\end{df}
+\begin{expl}
+ Soient $(E, d)$ et $\left(F, d^{\prime}\right)$ deux espaces m\'etriques.\\
+1) Toute fonction constante est continue.\\
+2) L'application identit\'e $\operatorname{Id}_{E}: E \longrightarrow E, x \longmapsto x$ est continue sur $E$.
+\end{expl}
+
+%\begin{thm}
+ %Soient $(E, d),\left(F, d^{\prime}\right)$ deux espaces m\'etriques, $f: E \longrightarrow F$ une fonction. Alors les propri\'et\'es suivantes sont \'equivalentes :\\
+%1) $f$ est continue sur $E$;\\
+%2) Pour tout ouvert $O$ de $F, f^{-1}(O)$ est un ouvert de $E$;\\
+%3) Pour tout ferm\'e $B$ de $F, f^{-1}(B)$ est un ferm\'e de $E$.
+%\end{thm}
+%\begin{dem}
+ %1) $\Longrightarrow$ 2). Soit $O$ un ouvert de $F$. Montrons que $f^{-1}(O)$ est un ouvert de $E$. Soit $a \in f^{-1}(O)$. Donc $f(a) \in O$. Il vient que
+%$$
+%\exists \varepsilon>0 \text { tel que } B^{\prime}(f(a), \varepsilon) \subset O
+%$$
+%D'autre part, on a $f$ est continue en $a$. D'o\`u
+%$$
+%\exists \delta>0 \text { tel que } B(a, \delta) \subset f^{-1}\left(B^{\prime}(f(a), \varepsilon)\right) .
+%$$
+%Ainsi on a montr\'e que
+%$$
+%\forall a \in f^{-1}(O), \exists \delta>0 \text { tel que } B(a, \delta) \subset f^{-1}(O)
+%$$
+%Par suite, $f^{-1}(O)$ est un ouvert de $E$.\\
+%l'\'equivalence 2) $\Longleftrightarrow 3$ ) est facile.\\
+%2) $\Longrightarrow$ 1). Soit $a \in E$. Montrons que $f$ est continue en $a$. Soit $\varepsilon>0$. On sait que $B^{\prime}(f(a), \varepsilon)$ est un ouvert de $F$. Donc d'apr\`es 2$)$, on a $f^{-1}\left(B^{\prime}(f(a), \varepsilon)\right)$ est un ouvert de $E$. De plus, on a $a \in f^{-1}\left(B^{\prime}(f(a), \varepsilon)\right)$. Il vient que
+%$$
+%\exists \delta>0 \text { tel que } B(a, \delta) \subset f^{-1}\left(B^{\prime}(f(a), \varepsilon)\right)
+%$$
+%Ce qui montre que $f$ est continue en $a$.
+%\end{dem}
+\begin{df}(fonction lipschitzienne)\\
+Soit $f:\left(E, d\right) \rightarrow\left(E', d'\right)$ une application.\\
+- On dit que $f$ est lipschitzienne s'il existe $k>0$ tel que $\forall x, y \in E$ on a
+$$
+d'(f(x), f(y)) \leqslant k d(x, y)
+$$
+On appelle la plus petite constante $k \in R^{+}$qui v\'erifie cette propri\'et\'e la constante de Lipschitz.\\
+- On dit que $f:(E, d) \rightarrow(E, d)$ est contractante s'il existe $k<1$ telle que
+$$
+\forall x, y \in E \text { on a } d(f(x), f(y)) \leqslant k d(x, y)
+$$
+\end{df}
+%\part{Th\'eor\`eme de point fixe de Banach Picard et application}
+\chapter{Th\'eor\`eme de point fixe de Banach Picard:}
+Le th\'eor\`eme du point fixe de Banach, connu aussi sous le nom du principe de contraction de Banach ou th\'eor\`eme du point fixe de Picard, est apparu pour la premi\`ere fois en 1922 dans le cadre de la r\'esolution d'une \'equation int\'egrale. Notons que ce th\'eor\`eme est une abstraction de la m\'ethode classique des approximations successives introduite par Liouville (en 1837) et d\'evelopp\'ee par la suite par Picard (en 1890). A cause de sa simplicit\'e et de son utilit\'e, ce th\'eor\`eme est largement utilis\'e dans plusieurs branches de l'analyse math\'ematique, en particulier, dans la branche des \'equations diff\'erentielles. Le th\'eor\`eme du point fixe de Banach a connu de diverses g\'en\'eralisations dans diff\'erents espaces.
+\section{Th\'eor\`eme de point fixe de Banach:}
+
+\begin{df}
+Soit $(E, d)$ un espace m\'etrique, et $f: E \longrightarrow E$ une application, on dit qu'un point $x \in E$ fixe de $f$ si $f(x)=x$.
+\end{df}
+\begin{thm}{(Principe de contraction de Banach)}\\
+Soit $(E, d)$ un espace m\'etrique complet et $f: E \longrightarrow E$ une application contractante. Alors \\
+1. $f$ poss\'ede un unique point fixe.(i.e ) l'\'equation $f(x)=x$, a une solution unique dans $E$.\\
+2. Toute suite $\left(x_{n}\right) \subset E$ qui satisfait $x_{n+1}=f\left(x_{n}\right)$ converge vers $x \in E$.
+\end{thm}
+\begin{dem}
+- Existence.\\
+ Consid\'erons la suite $\left(x_{n}\right)$ d\'efinie par\\
+$$
+x_{1}=f\left(x_{0}\right), x_{2}=f\left(x_{1}\right), \cdots, x_{n+1}=f\left(x_{n}\right), \cdots
+$$
+La suite $\left(x_{n}\right)$ est une suite de Cauchy. En effet, nous avons\\
+$$
+\begin{array}{ccc}
+d\left(x_{n+1}, x_{n}\right) & = & d\left(f\left(x_{n}\right), f\left(x_{n-1}\right)\right) \leq k d\left(x_{n}, x_{n-1}\right) \\
+d\left(x_{n}, x_{n-1}\right) & \leq & k d\left(x_{n-1}, x_{n-2}\right) \\
+\vdots & & \vdots \\
+d\left(x_{2}, x_{1}\right) & \leq & k d\left(x_{1}, x_{0}\right)
+\end{array}
+$$
+on multiplie membre \`a membre, on a
+$$
+d\left(x_{n+1}, x_{n}\right) \leq k^{n} d\left(x_{1}, x_{0}\right)
+$$
+Soit $p \geq 1$, alors
+$$
+\begin{aligned}
+d\left(x_{n+p}, x_{n}\right) & \leq d\left(x_{n+p}, x_{n+p-1}\right)+\cdots+d\left(x_{n+1}, x_{n}\right) \\
+& \leq\left[k^{n+p-1}+\cdots+k^{n}\right] d\left(x_{1}, x_{0}\right)
+\end{aligned}
+$$
+Entre crochets, on a une progression g\'eom\'etrique de raison $k$, dont on conna\^it la somme, ce qui donne
+
+$$
+\begin{aligned}
+d\left(x_{n+p}, x_{n}\right) & \leq \frac{k^{n}\left(1-k^{p}\right)}{1-k} d\left(x_{1}, x_{0}\right) \\
+& \leq\frac{k^{n}}{1-k} d\left(x_{1}, x_{0}\right)
+\end{aligned}
+$$
+
+Comme $k<1$, la s\'erie est convergente et $d\left(x_{n+p}, x_{n}\right) \longrightarrow 0$ quand $n \longrightarrow \infty$, donc la suite est de Cauchy.\\
+
+La suite $\left(x_{n}\right)$ est de Cauchy dans $X$ complet $\left(x_{n}\right)$ converge vers $a$ et avec $x_{n}=f\left(x_{n-1}\right)$, quand $x \longrightarrow a$, on obtient $a=f(a)$ (car $f$ est continue), c'est-\`a-dire que $a$ est un point fixe pour $f$.\\
+- Unicit\'e. Soit $a^{\prime}$ un point fixe quelconque de $f$. On a
+$$
+d\left(a, a^{\prime}\right)=d\left(f(a), f\left(a^{\prime}\right)\right) \leq k d\left(a, a^{\prime}\right)
+$$
+(car $f$ est contractante), et donc $(1-k) d\left(a, a^{\prime}\right) \leq 0$. Comme $k<1$, alors $1-k>0$ et donc $d\left(a, a^{\prime}\right) \leq 0$ qui n'est possible que si $a=a^{\prime}$.
+\end{dem}
+
+\begin{rem}
+ Les hypoth\`eses du th\'eor\`eme du point fixe de Banach sont r\'eellement n\'ecessaire si nous en n\'egligeons seulement une, alors il se peut que le point fixe n'existe pas.\\
+1.) Si $k=1$ le th\'eor\`eme est faux; il n'y a ni existence, ni unicit\'e. A titre d'exemples :\\
+-Consid\'erer dans $X=\mathbb{R}$ et la fonction $f(x)=x+1$. Alors\\
+$$
+d(f(x), f(y))=|f(x)-f(y)|=|x-y|=d(x, y)
+$$
+et il n'existe pas de point fixe.\\
+-Si on consid\'ere $X=\mathbb{R}$ et la fonction $f(x)=x$, alors tous les points sont fixes.\\
+
+2.) Le th\'eor\`eme est faux si $(X, d)$ est non complet. A titre de contre exemple, consid\'erer $X=] 0,1\left[\right.$ et $f(x)=\frac{x}{2}$.\\
+3. $f$ n'est pas contractante:
+$f(x)=\sqrt{1+x^{2}} \quad$ sur $X=\mathbb{R}$
+or : $f: X \longrightarrow X$, et $X$ est un ferm\'e de $\mathbb{R} $  est $\mathbb{R}$  complet donc $X$ est complet.
+mais : $\sup _{x \in X}\left|f^{\prime}(x)\right|=1$
+donc $f$ n'est pas contractante.\\
+4) $f(x)=\frac{\sin (x)}{2} \quad$ sur $\left.\left.X=\right] 0, \frac{\Pi}{4}\right]$ or : $\left.\left.\left.\left.\left.\left.f(] 0, \frac{\Pi}{4}\right]\right)=\right] 0, \frac{\sqrt{2}}{4}\right] \subset\right] 0, \frac{\Pi}{4}\right]$ et $\sup _{x \in X}\left|f^{\prime}(x)\right|=\frac{1}{2}<1$ donc: $f$ est contractante.
+mais : $X$ n'est pas ferm\'e dans $R$ donc pas complet.
+%4.) Si pour tout $x$ et $y \in X, d(f(x), f(y))<d(x, y)$, alors il $y$ a unicit\'e mais il n'y a pas existence. A titre de contre-exemple, consid\'erer $f(x)=\log \left(1+e^{x}\right)$. Alors il n'existe pas de point fixe;( on a $f^{\prime}(x)=\frac{e^{x}}{1+e^{x}}<1$ ) sinon on aurait $\log \left(1+e^{x}\right)=x$ ce qui donne $1+e^{x}=e^{x}$ c'est-\`a-dire $1=0$.\\
+\end{rem}
+
+\subsection{ Th\'eor\`eme du point fixe pour une application dont une it\'er\'ee est contractante:} 
+\begin{thm}
+Soient $X$ un espace m\'etrique complet et $f: X \longrightarrow X$ une application dont une it\'er\'ee $f^{N}$ est contractante $\forall N \in \mathbb{N^{*}}$.\\
+Alors $f$ admet un unique point fixe $\alpha$ et $\forall x \in E, \quad \lim _{n \rightarrow+\infty} f^{n}(x)=\alpha$.
+\end{thm}
+\begin{dem}
+En appliquant le th\'eor\`eme de contraction de Banach \`a $f^{N}$, on obtient que $f^{N}$ poss\`ede un unique point fixe $\alpha$ et $\lim _{n \rightarrow+\infty} f^{n}(x)=\alpha$
+$x \in X$. Mais on a :
+$$
+f^{N}(f(\alpha))=f^{N+1}(\alpha)=f\left(f^{N}(\alpha)\right)=f(\alpha)
+$$
+ce qui entraine que $f(\alpha)$ est aussi point fixe de $f^{N}$,
+donc: $f(\alpha)=\alpha$. Ce point fixe de $f$ est unique, car tout point fixe de $f$ est aussi point fixe de $f^{N}$.
+\end{dem}
+\subsection{La version locale du th\'eor\`eme de Banach:}
+Il se peut que $f$ ne soit pas une contraction sur tout l'espace $X$ mais juste dans le voisinage d'un point donn\'e. Dans ce cas on a le r\'esultat suivant:
+\begin{thm}
+Soit $(X, d)$ un espace m\'etrique complet et soit
+$$
+B\left(x_{0}, r\right)=\left\{x \in X: d\left(x, x_{0}\right)<r\right\} \quad \text { ou } \quad x_{0} \in X \quad \text { et } \quad r>0
+$$
+Supposons que $f: B\left(x_{0}, r\right) \longrightarrow X$ est contractante de constante de contraction $k$, avec $d\left(f\left(x_{0}\right), x_{0}\right)<(1-k) r$
+Alors $f$ admet un unique point fixe dans $B\left(x_{0}, r\right)$.
+\end{thm}
+\begin{dem}
+Il existe $r_{0}$ avec $0 \leq r_{0} \leq r$, tel que $d\left(f\left(x_{0}\right), x_{0}\right) \leq \underline{(1-k) r_{0}}$
+On montre que $f: \overline{B\left(x_{0}, r_{0}\right)} \longrightarrow \overline{B\left(x_{0}, r_{0}\right)}$. Soit $x \in \overline{B\left(x_{0}, r_{0}\right)}$
+alors :
+$$
+\begin{aligned}
+d\left(f\left(x), x_{0}\right)\right.& \leq d\left(f(x), f\left(x_{0}\right)\right)+d\left(f\left(x_{0}\right), x_{0}\right) \\
+& \leq k d\left(x, x_{0}\right)+(1-k) r_{0} \\
+& \leq k r_{0}+(1-k) r_{0} \\
+& \leq r_{0}
+\end{aligned}
+$$
+Donc l'application $f: \overline{B\left(x_{0}, r_{0}\right)} \longrightarrow \overline{B\left(x_{0}, r_{0}\right)}$ est contractante avec $\overline{B\left(x_{0}, r_{0}\right)}$ est un espace complet. Par suite, l'application du th\'eor\`eme de contraction de Banach \`a $f$ assure qu'elle admet un unique point fixe dans $B\left(x_{0}, r\right)$.\\
+
+Nous allons examiner bri\`evement le comportement d'une application de contraction d\'efinie de $\overline{B_{r}}=\overline{B(0, r)}$ (La boule ferm\'ee de rayon $r$ et de centre 0 ) \`a valeurs dans un espace de Banach $E$.
+\end{dem}
+
+\subsection{Th\'eor\`eme de point fixe \`a param\`etre $\lambda$:}
+\begin{thm}
+Soit $(T,\tau)$ un espace topologique et $(X,d)$ un espace m\'etrique compl\'et\'e et $k\in \left]0;1\right[$ consid\'erer l'application $f$ continue \\
+
+
+\begin{center}
+$\begin{array}{ccccc}
+f & : & T \times X & \longrightarrow X \\
+  & & (\lambda,x) &  \longrightarrow f(\lambda,x)
+\end{array}$
+
+\end{center}
+o\`u pour chaque $\lambda \in T$\\
+\begin{center}
+$\begin{array}{ccccc}
+G_{\lambda} & : & X \longrightarrow X\\
+& & x \longrightarrow & G_{\lambda}=f(\lambda,x)
+\end{array}$
+\end{center}
+et $G_{\lambda}$ contractante de rapport $k\in \left[1;0\right[$ alors:\\
+$G_{\lambda}$ poss\'ede un point fixe note $\varphi(\lambda)$ et l'application 
+\begin{center}
+$\begin{array}{ccccc}
+\varphi & : & T \longrightarrow X\\
+& & \lambda & \longrightarrow \varphi(\lambda)
+\end{array}$
+\end{center}
+et continue.
+\end{thm}
+\begin{dem}
+Pour $\lambda \in T$ fix\'e\\
+\begin{center}
+$G_{\lambda}:X \longrightarrow X$\\
+$ x \longrightarrow G_{\lambda}=f(\lambda,x)$
+\end{center}
+$G_{\lambda}$ poss\'ede un unique point fixe $\varphi(\lambda)$(d'apr\'es la th\'eor\`eme 2.0.1) c'est-\`a-dire:\\  
+\begin{center}                
+ $G_{\lambda}(\varphi(\lambda))=\varphi(\lambda)$\\
+$\Leftrightarrow f(\lambda,\varphi(\lambda))=\varphi(\lambda)$
+\end{center}
+Cas particulier \\
+Si $T=(Y,\delta)$ un espace m\'etrique (Topologique) \\
+\begin{center}
+$\varphi:(Y,\delta) \longrightarrow X$\\
+$ \lambda \longrightarrow \varphi(\lambda)$
+\end{center}
+Soit $\lambda_{0} \in Y$\\
+Montrons que $\varphi$ continue en $\lambda_{0}$\\
+C'est-\`a-dire soit $\varepsilon >0$ cherchons $\alpha >0$ telle que:\\
+$\delta(\lambda,\lambda_{0})<\alpha \Rightarrow d(\varphi(\lambda),\varphi(\lambda_{0}))<\varepsilon$.\\
+On a 
+$$
+\begin{array}{ccc}
+d\left( \varphi(\lambda),\varphi(\lambda_{0}))=d(G_{\lambda}(\varphi(\lambda)),G_{\lambda_{0}}(\varphi(\lambda_{0}))\right) \\
+=d(f(\lambda;\varphi(\lambda)),f(\lambda_{0},\varphi(\lambda_{0})))\\
+\leqslant d(f(\lambda;\varphi(\lambda)),f(\lambda_{0},\varphi(\lambda)))+d(f(\lambda_{0},\varphi(\lambda)),f(\lambda_{0},\varphi(\lambda_{0})))
+\end{array}
+$$
+$f$ continue sur $Y\times X$ en particulier $f$ est continue en       $(\lambda_{0},.)$
+alors \\
+$\forall \varepsilon > 0 ,\exists \alpha_{1} > 0$ telle que :\\
+\begin{center}
+$\delta(\lambda,\lambda_{0})<\alpha_{1} \Rightarrow d(f(\lambda;\varphi(\lambda)),f(\lambda_{0},\varphi(\lambda)))< \frac{\varepsilon}{2}$
+\end{center}
+de m\^eme $f$ est continue en $(. , \varphi(\lambda_{0}))$ alors \\
+$\forall \varepsilon > 0 ,\exists \alpha_{2} > 0$ telle que :\\
+\begin{center}
+$d(\varphi(\lambda),\varphi(\lambda_{0}))< \alpha_{2} \Rightarrow d(f(\lambda_{0},\varphi(\lambda)),f(\lambda_{0},\varphi(\lambda_{0})))<\frac{\varepsilon}{2} $
+\end{center}
+alors $\forall ,\varepsilon >0 \exists \alpha_{1} >0 $ telle que \\
+$\delta(\lambda,\lambda_{0})<\alpha_{1} \Rightarrow d(\varphi(\lambda),\varphi(\lambda_{0}))< \varepsilon$\\
+Ceci implique que $\varphi$ continue en $\lambda_{0}$
+
+\end{dem}
+\chapter{Application du th\'eor\`eme de point fixe de Banach-Picard}
+\section{Th\'eor\`eme de Cauchy Lipschitz:}
+Ce th\'eor\`eme est une application du th\'eor\`eme 2.0.1. En effet, nous verrons qu'une fa\c con de le d\'emontrer est d'appliquer le th\'eor\`eme pr\'ec\'edent avec $E$ un ensemble de fonctions et $\varphi$ une application bien choisie.\\
+Soient $U$ un ouvert de $\mathbb{R} \times \mathbb{R}^{m}$ et $f: U \rightarrow \mathbb{R}^{m}$ une application continue. On introduit le probl\`eme de Cauchy (C) suivant:\\
+Etant donn\'e $\left(t_{0}, y_{0}\right) \in U$, trouver une solution $y: I \subset \mathbb{R} \rightarrow \mathbb{R}^{m}$ de l'\'equation diff\'erentielle\\
+ $$(E)\:\:\:  y^{\prime}=f(t, y),(t, y) \in U$$
+ telle que $t_{0} \in I$ et $y\left(t_{0}\right)=y_{0}$.
+\begin{df}
+ $f$ est localement Lipschitzienne par rapport \`a la variable y sur $U$ si $\forall\left(r_{0}, y_{0}\right) \in$ $U$, il existe un voisinage $V$ de $\left(r_{0}, y_{0}\right)$ dans $U$ et une constante $k=k(V)$ telle que $\forall\left(t, y_{1}\right),\left(t, y_{2}\right) \in$ $V$, on ait $\left\|f\left(t, y_{1}\right)-f\left(t, y_{2}\right)\right\| \leq k\left\|y_{1}-y_{2}\right\|$.
+\end{df}
+\begin{thm}
+ (de Cauchy-Lipschitz). Soit $\Omega$ un ouvert de $\mathbb{K}^{n}$ et $I$ un intervalle ouvert de $\mathbb{R}$. On suppose que\\
+ -F est continue de $I \times \Omega$ dans $\mathbb{K}^{n}$\\
+ -il existe une fonction $L$ int\'egrable sur tout sous intervalle ferm\'e born\'e de $I$  telle que
+$$
+\forall t \in I, \forall(x, y) \in \Omega^{2},\|F(t, x)-F(t, y)\| \leq L(t)\|x-y\| .
+$$
+Alors pour tout point $\left(t_{0}, x_{0}\right)$ de $I \times \Omega$, il existe un intervalle ouvert $J \subset I$ contenant $t_{0}$ et une fonction $\phi: J \longrightarrow \Omega$ de classe $C^{1}$ v\'erifiant $(E)$ sur $J$ et telle que $\phi\left(t_{0}\right)=x_{0}$
+
+Cette solution est unique au sens suivant : s'il existe une autre fonction $\psi$ de classe $C^{1}$ sur un sous-intervalle $J^{\prime}$ des $I$ contenant $t_{0}$, v\'erifiant $(S)$ sur $J^{\prime}$ et telle que $\psi\left(t_{0}\right)=x_{0}$ alors $\psi \equiv \phi$ sur $J \cap J^{\prime}$.
+\end{thm}
+\begin{dem}
+ Vu les hypoth\`eses sur $F$.il est \'equivalent de montrer qu'il existe une unique fonction $\phi$ continue sur un intervalle $J$ contenant $t_{0}$ et telle que\\
+\begin{equation}
+\phi(t)=x_{0}+\int_{t_{0}}^{t} F\left(t^{\prime}, \phi\left(t^{\prime}\right)\right) d t^{\prime} \text { pour tout } t \in J
+\label{moneq}
+\end{equation}
+Soit $r_{0}>0$ tel que la boule ferm\'ee $\bar{B}\left(x_{0}, r_{0}\right)$ de centre $x_{0}$ et de rayon $r_{0}$ soit incluse dans $\Omega$ et $J$, un intervalle ouvert contenant $t_{0}$. On choisit $J$ de longueur suffisamment petite pour que
+$$
+\int_{J}\left\|F\left(t, x_{0}\right)\right\| d t \leq \frac{r_{0}}{2} \quad \text { et } \quad \int_{J} L(t) d t \leq \frac{1}{2}
+$$
+On consid\`ere une fonction $\phi \in \mathcal{C}\left(J ; \bar{B}\left(x_{0}, r_{0}\right)\right)$. Alors
+$$
+\psi:\left\{\begin{aligned}
+J & \rightarrow E \\
+t & \mapsto x_{0}+\int_{t_{0}}^{t} F\left(t^{\prime}, \phi\left(t^{\prime}\right)\right) d t^{\prime}
+\end{aligned}\right.
+$$
+est une fonction continue sur $J$ et \`a valeurs dans $\bar{B}\left(x_{0}, r_{0}\right)$. En effet, pour tout $t \in J$, on a
+$$
+\begin{aligned}
+\left\|\psi(t)-x_{0}\right\| & \leq \int_{J}\|F(t, \phi(t))\| d t \\
+& \leq \int_{J}\left\|F(t, \phi(t))-F\left(t, x_{0}\right)\right\| d t+\int_{J}\left\|F\left(t, x_{0}\right)\right\| d t \\
+& \leq r_{0} \int_{J} L(t) d t+\int_{J}\left\|F\left(t, x_{0}\right)\right\| d t \\
+& \leq r_{0} .
+\end{aligned}
+$$
+Il en r\'esulte que l'on peut d\'efinir la suite $\left(\phi_{n}\right)_{n \in \mathbb{N}}$ d'\'el\'ements de $\mathcal{C}\left(J ; \bar{B}\left(x_{0}, r_{0}\right)\right)$ par
+\begin{equation}
+\phi_{0}(t) \equiv x_{0} \quad \text { et } \quad \phi_{n+1}(t)=x_{0}+\int_{t_{0}}^{t} F\left(t^{\prime}, \phi_{n}\left(t^{\prime}\right)\right) d t^{\prime}
+\label{moneq}
+\end{equation}
+D\'emontrons que la suite $\left(\phi_{n}\right)_{n \in \mathbb{N}}$ est de Cauchy dans $\mathcal{C}\left(J ; \bar{B}\left(x_{0}, r_{0}\right)\right)$. Pour cela, on \'ecrit que si
+$$
+\rho_{n} \stackrel{\text { d\'ef }}{=} \sup _{t \in J, p \in \mathbb{N}}\left\|\phi_{n+p}(t)-\phi_{n}(t)\right\|
+$$
+alors on a
+$$
+\begin{aligned}
+\rho_{n+1} & \leq \sup _{p \in \mathbb{N}} \int_{J}\left\|F\left(t, \phi_{n+p}(t)\right)-F\left(t, \phi_{n}(t)\right)\right\| d t \\
+& \leq \sup _{p \in \mathbb{N}} \int_{J} L(t)\left\|\phi_{n+p}(t)-\phi_{n}(t)\right\| d t \\
+& \leq \rho_{n} \int_{J} L(t) d t \\
+& \leq \frac{1}{2} \rho_{n} .
+\end{aligned}
+$$
+En cons\'equence la suite $\left(\rho_{n}\right)_{n \in \mathbb{N}}$ tend vers 0. La suite $\left(\phi_{n}\right)_{n \in \mathbb{N}}$ est donc de Cauchy dans l'espace complet $\mathcal{C}\left(J ; \bar{B}\left(x_{0}, r_{0}\right)\right)$. Elle converge donc uniform\'ement vers une fonction $\phi$ qui appartient aussi \`a $\mathcal{C}\left(J ; \bar{B}\left(r_{0}, x_{0}\right)\right)$. Par passage \`a la limite dans (3.2), on trouve que $\phi$ est solution de (3.1).
+
+Reste \`a prouver l'unicit\'e. Consid\'erons donc deux solutions $\phi$ et $\psi$ de (3.1) d\'efinies sur deux intervalles ouverts $J$ et $J^{\prime}$ et telles que $\phi\left(t_{0}\right)=\psi\left(t_{0}\right)$. On a pour tout $\left(t, t_{1}\right) \in\left(J \cap J^{\prime}\right)^{2}$,
+\begin{equation}
+\psi(t)-\phi(t)=\int_{t_{1}}^{t}(F(\tau, \psi(\tau))-F(\tau, \phi(\tau))) d \tau
+\label{moneq}
+\end{equation}
+Si $\int_{J \cap J^{\prime}} L(t)<1$, une adaptation imm\'ediate de la preuve de la convergence de la suite $\left(\phi_{n}\right)_{n \in \mathbb{N}}$ permet d'obtenir $\psi \equiv \phi$ sur $J \cap J^{\prime}$, mais on peut en fait fort bien se passer de cette condition sur $J$. En effet, soit $K=\left\{t \in J \cap J^{\prime} \mid \phi(t)=\psi(t)\right.$ sur $\left.\left[t_{0}, t\right] \cup\left[t, t_{0}\right]\right\}$. L'ensemble $K$ est un sous-intervalle de $J \cap J^{\prime}$ par construction. Cet intervalle n'est pas vide car contient $t_{0}$. Soit $t_{+}$la borne sup\'erieure de $K$. Supposons par l'absurde que $t_{+}<\sup J \cap J^{\prime}$. Alors $\phi-\psi \equiv 0$ sur $\left[t_{0}, t_{+}\left[\right.\right.$et donc sur $\left[t_{0}, t_{+}\right]$aussi par continuit\'e de $\phi-\psi$. Donc $t_{+} \in K$. Soit $\varepsilon>0$ tel que:
+$$
+] t_{+}-\varepsilon, t_{+}+\varepsilon\left[\subset J \cap J^{\prime} \quad \text { et } \quad \int_{t_{+}-\varepsilon}^{t_{+}+\varepsilon} L(t) d t \leq \frac{1}{2} .\right.
+$$
+
+De (3.3), on tire
+$$
+\sup _{\left|t-t_{+}\right|<\varepsilon}\|\psi(t)-\phi(t)\| \leq \frac{1}{2} \sup _{\left|t-t_{+}\right|<\varepsilon}\|\psi(t)-\phi(t)\| \text {. }
+$$
+Donc $] t_{+}-\varepsilon, t_{+}+\varepsilon\left[\subset K\right.$. Cela contredit la d\'efinition de $t_{+}$. Donc $t_{+}=\sup J \cap J^{\prime}$. Un raisonnement analogue est valable pour la borne inf\'erieure. Donc $K=J \cap J^{\prime}$. Autrement dit $\psi \equiv \phi$ sur $J \cap J^{\prime}$.
+\end{dem}
+%\chapter{Th\'eor\`eme d'inversion locale}
+\begin{df}
+Soient $E, F$ deux espaces de Banach, $U \subset E$ ouvert, a $\in U, f: U \rightarrow F$ une application. On dit que $f$ est diff\'erentiable en a $s$ 'il existe $\varphi \in \mathcal{L}_{c}(E, F)$ (i.e. $\varphi$ est lin\'eaire et continue) telle que
+$$
+f(a+h)=f(a)+\varphi(h)+o(\|h\|) \text { lorsque } h \rightarrow 0
+$$
+Si $\varphi$ existe, elle est unique et est appell\'ee la diff\'erentielle de $f$ en a et est not\'ee $d f_{a}$. Si $f$ est diff\'erentiable en tout point de $U$, on dit que $f$ est diff\'erentiable sur $U$.\\ Alors l'application $d f: U \rightarrow \mathcal{L}_{c}(E, F): a \mapsto d f_{a}$ est appell\'ee l'application diff\'erentielle de $f$. Si $df$ est continue, on dit que $f$ est de classe $\mathcal{C}^{1}(U)$.
+\end{df}
+
+Soient $E$ et $F$ deux espace vectorielle de m\^eme dimension fine.\\
+-$U \subset E$ ouverte \\
+-$V \subset F$ ouverte
+\begin{df}
+ Soient $E$ et $F$ deux evn. Soient $U \subset E$ et $V \subset F$ deux ouverts. Une application $f: U \longrightarrow V$ est un diff\'eomorphisme de classe $C^{1}$ sur $U$ vers $V$ si: \\
+ - $f$ est une bijection de $U$ sur $V$.\\
+- $f$ et $f^{-1}$ sont toutes les deux de classe $C^{1}$.
+\end{df}
+\textbf{Rappel}:\\
+ Si $I$ est un intervalle ouvert de $\mathbb{R}$ et
+$$
+f: I \longrightarrow \mathbb{R}
+$$
+une fonction de classe $C^{1}$ avec $f^{\prime}(t) \neq 0$ pour tout $t \in I$ alors $J=f(I)$ est un intervalle ouvert de $\mathbb{R}$ et $f: I \longrightarrow J$ est un diff\'eomorphisme avec
+$$
+\left(f^{-1}\right)^{\prime}(x)=\frac{1}{f^{\prime}(f^{-1}(x))}
+$$
+En effet $f^{\prime}$ est continue et ne s'annule jamais, d'apr\`es le th\'eor\`eme des valeurs interm\`ediaires $f^{\prime}$ garde un signe constant sur $I$. Par suite $f$ est strictement monotone et donc $J=f(I)$ est un intervalle ouvert et $f$ : $I \longrightarrow J$ est une bijection et $f^{-1}: J \longrightarrow I$ est continue. Si $x, y \in J$ avec $f(t)=x$ et $f(s)=y$ on a
+$$
+\frac{f^{-1}(y)-f^{-1}(x)}{y-x}=\frac{1}{\frac{f(s)-f(t)}{s-t}}
+$$
+Ce qui entraine que $f^{-1}$ est d\'erivable et on a la formule de $\left(f^{-1}\right)^{\prime}$ qui est continue aussi et donc $f^{-1}$ est de classe $C^{1}$ sur $J$.
+\section{Th\'eor\`eme d'inversion local:}
+\subsection{Formule de la diff\'erentielle de l'inverse:}
+On a la formule de la diff\'erentielle de l'inverse qui g\'en\'eralise celle d'une variable.
+\begin{prop}
+ Soient $E$ et $F$ deux evn. Si $f: U \longrightarrow V$ est un diff\'eomorphisme d'un ouvert $U \subset E$ sur un ouvert $V \subset F$ alors pour tout $p \in U$ la diff\'erentielle $d f(p): E \longrightarrow F$ est inversible et
+$$
+d\left(f^{-1}\right)(q)=(df(p))^{-1}
+$$
+o\`u $f(p)=q$.
+\end{prop}
+\begin{dem}
+ On a
+$$
+f^{-1} \circ f=\left.I d_{E}\right|_{U} \text { et } f \circ f^{-1}=\left.I d_{F}\right|_{V}
+$$
+Puisque $I d_{E}$ et $I d_{F}$ sont lin\'eaires continues, en prenant la diff\'erentielle des deux identit\'es, on a pour tout $p \in U$ et $q \in V$\\
+$I d_{F}=d(I d_{V})(q)=d(f \circ f^{-1})(q)$\\
+$\Leftrightarrow I d_{F}=d \:f(f^{-1}(q)) \circ d\:f^{-1}(q)$ \textbf{(d'apr\'es la diff\'erentielle de la composition)} \\
+Si $q=f(p)$\\
+$\Leftrightarrow I d_{F}=d \:f(p)\circ d \:f^{-1}(q)$ \\
+De m\^eme on obtient :\\
+$I d_{E}=d \:f^{-1}(f(p)) \circ d\:f(p)$\\
+Alors:
+
+$$
+d f^{-1}(f(p)) \circ d f(p)=I d_{E} \text { et } d f\left(f^{-1}(q)\right) \circ d f^{-1}(q)=I d_{F}
+$$
+Ainsi :\\
+$$
+d\left(f^{-1}\right)(q)=(d f(p))^{-1}
+$$
+\end{dem}
+\subsection{Th\'eor\`eme d'inversion local:}
+\begin{thm}
+ Soient:\\
+- E, F deux espaces de Banach\\
+- $U \subset E$ ouvert\\
+- $f: U \rightarrow F$ une application de classe $\mathcal{C}^{1}$\\
+- $a \in U$ tel que $d f_{a}$ soit continu et inversible (et donc $d f_{a}^{-1}$ est continue)\\
+Alors, il existe un voisinage ouvert $V$ de a et un voisinage ouvert $W$ de $f(a)$ tels que:\\
+1. la restriction $f_{\mid V}$ de $f$ \`a $V$ est une bijection de $V$ sur $W$\\
+2. l'application inverse $g: W \rightarrow V$ est continue\\
+3. $g$ est de classe $\mathcal{C}^{1}$ et $\forall x \in W, d g_{f(x)}=d f_{x}^{-1}$
+\end{thm}
+\begin{dem}
+On munit $\mathcal{L}_{c}(E, F)$ de la norme $\|u\|=\sup _{\|x\|=1}\|u(x)\|$.  Quitte \`a remplacer $f$ par la fonction $x \mapsto d f_{x}^{-1}[f(a+x)-f(a)]$, on peut se ramener au cas o\`u\\
+ $a=0$ $f(a)=0$, et $df_{0}=d f_{a}=I d_{E}$ (et donc $\left.E=F\right)$.\\
+
+Comme $f$ est de classe $\mathcal{C}^{1}$, il existe $r>0$ tel que $B(0, r) \subset U$ et $\left\|d f_{x}-d f_{0}\right\|=\left\|d f_{x}-I d_{E}\right\| \leq \frac{1}{2}$ pour tout $x \in B(0, r)$. On d\'esigne $u:=I d_{E}-d f_{x}$, donc $d f_{x}=I d_{E}-u$ avec $\|u\| \leq \frac{1}{2}$. Alors, $d f_{x}$ est un isomorphisme continu qui, v\'erifie $d f_{x}^{-1}=\sum_{n=0}^{+\infty} u^{n}$, et donc
+$$
+\left\|d f_{x}^{-1}\right\| \leq \sum_{n=0}^{+\infty}\|u\|^{n} \leq \sum_{n=0}^{+\infty} \frac{1}{2^{n}}=\lim _{n \rightarrow+\infty} \frac{2^{n+1}-1}{2^{n}}=2
+$$
+1. On va montrer que la restriction de $f$ \`a un voisinage ouvert de $0$ dans $B(0, r)$ est une bijection sur $B\left(0, \frac{r}{2}\right)$. Soit $y \in B\left(0, \frac{r}{2}\right)$. On consid\`ere la fonction
+$$
+\begin{aligned}
+h: & B_{f}(0, r) \rightarrow E \\
+& x \mapsto y+x-f(x)
+\end{aligned}
+$$
+Il est clair que $h$ est de classe $\mathcal{C}^{1}:$ de plus, $\forall x \in B(0, r),\left\|d h_{x}\right\|=\left\|I d_{E}-d f_{x}\right\| \leq \frac{1}{2}$. Donc, d'apr\`es le Th\'eor\`eme des Accroisements Finis,
+$$
+\forall x, x^{\prime} \in B_{f}(0, r), \quad\left\|h(x)-h\left(x^{\prime}\right)\right\| \leq \frac{1}{2}\left\|x-x^{\prime}\right\| \:(1)
+$$
+En particulier, pour $x^{\prime}=0$, on a $\|x-f(x)\|=\|h(x)-h(0)\| \leq \frac{1}{2}\|x\|$, donc
+$$
+\forall x \in B(0, r), \quad\|h(x)\| \leq\|y\|+\|x-f(x)\| \leq\|y\|+\frac{1}{2}\|x\|<\frac{r}{2}+\frac{r}{2}=r
+$$
+Ainsi, $h$ est une fonction de $B_{f}(0, r)$ dans $B(0, r) \subset B(0,1)$. Comme de plus $h$ est $\frac{1}{2}-$ Lipschitzienne d'apr\`es (1), d' apr\`es le th\'eor\`eme $2.0.1, \exists ! x \in B_{f}(0, r)$ tel que $h(x)=x$, c'est-\`a-dire tel que $f(x)=y$. Comme $x=h(x)$ et que $h$ est \`a valeurs dans $B(0, r)$, on en d\'eduit que $x \in B(0, r)$.
+Alors, pour tout $y \in B\left(0, \frac{r}{2}\right), \exists ! x \in B(0, r)$ tel que $f(x)=y$. On \'efinit $V:=f^{-1}\left(B\left(0, \frac{r}{2}\right)\right) \cap$ $B(0, r)$. $V$ est un voisinage de 0 car $f(0)=0$ et $f$ est continue sur $B(0, r)$. En notant $W:=B\left(0, \frac{r}{2}\right)$, on a alors $f_{\mid V}: V \rightarrow W$ est une bijection.\\
+2. On note $g: W \rightarrow V$ l'application inverse. On utilise nouvel $h$, cette fois-ci avec $y=0$, et donc $\forall x \in U, x=h(x)+f(x)$. Alors, $\forall x, x^{\prime} \in B(0, r)$,
+$$
+\left\|x-x^{\prime}\right\| \leq\left\|h(x)-h\left(x^{\prime}\right)\right\|+\left\|f(x)-f\left(x^{\prime}\right)\right\| \leq \frac{1}{2}\left\|x-x^{\prime}\right\|+\left\|f(x)-f\left(x^{\prime}\right)\right\|
+$$
+Donc, $\left\|x-x^{\prime}\right\| \leq 2\left\|f(x)-f\left(x^{\prime}\right)\right\|$. On en d\'eduit que $\forall y, y^{\prime} \in W$,
+$$
+\left\|g(y)-g\left(y^{\prime}\right)\right\| \leq 2\left\|f(g(y))-f\left(g\left(y^{\prime}\right)\right)\right\|=2\left\|y-y^{\prime}\right\| \:\:(2)
+$$
+$g$ est donc Lipschitzienne et par cons\'equent continue.\\
+3. On fixe $x \in V$ et on pose $y=f(x) \in W$. Il existe $r^{\prime}>0$ tel que $B\left(y, r^{\prime}\right) \subset W$, et pour tout $w \in B\left(0, r^{\prime}\right)$, on pose $v=g(y+w)-g(y)$. Donc, d'apr\`es (2), $\|v\| \leq 2\|w\|$, et
+$$
+\begin{aligned}
+\Delta(w) &=g(y+w)-g(y)-d f_{x}^{-1}(w) \\
+&=v-d f_{x}^{-1}[f(x+v)-f(x)] \\
+&=-d f_{x}^{-1}\left[f(x+v)-f(x)-d f_{x}(v)\right]
+\end{aligned}
+$$
+Comme $\left\|d f_{x}^{-1}\right\| \leq 2$, on obtient $\|\Delta(w)\| \leq 2\left\|f(x+v)-f(x)-d f_{x}(v)\right\|=2\|v\| \varepsilon(v)$ avec $\lim _{v \rightarrow 0} \varepsilon(v)=0$. Donc. $\|\Delta(w)\| \leq 4\|w\| \varepsilon(g(y+w)-g(y))=4\|w\| \varepsilon^{\prime}(w)$.
+Comme $g$ est continue, $\lim _{w \rightarrow 0} \varepsilon^{\prime}(w)=0$. Alors, $\|\Delta(w)\|=o(\|w\|)$. Donc, $g$ est diff\'erentiable en $y$ et $d g_{y}=d f_{x}^{-1}$. Enfin, comme $d f_{x}^{-1}$ est continue (car $f$ est de classe $\mathcal{C}^{1}$ et que $L \in$ $G L(E) \mapsto L^{-1} \in G L(E)$ est continue), la fonction $d g: y \mapsto d g_{y}$ est continue. Ainsi, $g$ est de classe $\mathcal{C}^{1}$
+\end{dem}
+%\part{Th\'eor\`eme du point fixe de type Brouwer-Schauder}
+\chapter{Th\'eor\`eme du point fixe de type Brouwer-Schauder:}
+Dans ce chapitre, nous allons actuellement pr\'esenter les th\'eor\`emes du point fixe pour
+une application continue dans les espaces de Banach en dimension finie et infinie. En
+particulier, nous pr\'esentons les th\'eor\`emes de Brouwer et Schauder.
+\section{Th\'eor\`eme de Brouwer:}
+\begin{thm} Soit $K$ une partie non vide, compacte et convexe de $\mathbb{R}^{n}$ et $f: K \rightarrow K$ une fonction continue. Il existe $x \in K$ tel que $f(x)=x$.
+\end{thm}
+\begin{rem}
+ Les parties convexes et compactes de $\mathbb{R}$ sont les segments. Le th\'eor\`eme de Brouwer prend donc dans le cas $n=1$ la forme particuli\`ere suivante :
+\end{rem}
+\begin{thm}
+ Si $f:[a, b] \rightarrow[a, b]$ est continue, alors il existe $x \in[a, b]$ tel que $f(x)=x$.
+ \end{thm}
+\begin{dem}
+ Si $f$ est continue de $[a, b]$ dans lui-m\^eme, la fonction $g: x \mapsto f(x)-x$ est continue, prend en $a$ la valeur $f(a)-a \geq 0$ et en $b$ la valeur $f(b)-b \leq 0$. Alors par le th\'eor\`eme des valeurs interm\'ediaires, la fonction $g$ s'annule en un point $x_{0}$, qui est un point fixe de $f$.
+ \end{dem}
+ \begin{thm} Toute application $T$ continue d'une boule ferm\`ee d'un espace euclidien dans elle-m\^eme admet un point fixe.
+\end{thm}
+Il peut encore \^etre un peu plus g\'en\'eral, en consid\'erant toute partie convexe compact d'un espace euclidien :
+
+\begin{thm} Toute application $T$ continue d'un convex compact $K$ d'un espace euclidien \`a valeur dans $K$ admet un point fixe.
+\end{thm}
+Nous allons donner un r\'esultat de Brouwer qu'on ou ra besoin dans la d\'emonstration du th\'eor\`eme de Schauder.
+
+\begin{df} On dit qu'un espace topologique a la propri\'et\'e du point fixe si toute application continue $T: E \rightarrow E$ poss\`ede un point fixe.
+\end{df}
+On note par $B_{n}$ la boule unit\'e ferm\'ee de $E^{n}$, et on a le r\'esultat suivant:
+\begin{thm} La boule $B_{n}$ a la propri\'et\'e $d u$ point fixe pour tout $n \in \mathbb{N}$.
+\end{thm}
+Schauder a g\'en\'eralis\`e le r\'esultat de Brouwer en dimension infinie.
+\section{Le Th\'eor\`eme de Schauder:}
+Ce th\'eor\`eme prolonge le r\'esultat du th\'eor\`eme de Brouwer pour montrer l'existence d'un point
+fixe pour une fonction continue sur un convexe compact dans un espace de Banach
+
+\begin{thm}(Schauder).\\
+ Soient $E$ un espace de Banach et $K \subset E$ convexe et compact. Alors toute application continue $f: K \rightarrow K$ poss\`ede un point fixe.
+\end{thm}
+\begin{dem}
+Soit $f: K \mapsto K$ une application continue. Comme $K$ est compact, $f$ est uniform\'ement continue; donc, si on fixe $\varepsilon>0$, il existe $\delta>0$ tel que, pour tout $x, y \in K$, on ait $\|f(x)-f(y)\| \leq \varepsilon$, d\`es que $\|x-y\| \leq \delta$. De plus, il existe un ensemble fini des points $\left\{x_{1}, \ldots, x_{p}\right\} \subset K$ tel que les boules ouvertes de rayon $\delta$ centr\'ees aux $x_{i}$ recouvrent $K$; i.e. $K \subset \bigcup_{1 \leq j \leq p} B\left(x_{j}, \delta\right)$. Si on d\'esigne $L:=\operatorname{Vect}\left(f\left(x_{j}\right)\right)_{1 \leq j \leq p}$, alors $L$ est de dimension finie, et $K^{*}:=K \cap L$ est compact convexe de dimension finie.\\
+Pour $1 \leq j \leq p$, on d\'efinit la fonction continue $\psi_{j}: E \rightarrow \mathbb{R}$ par
+$$
+\psi_{j}(x)= \begin{cases}0 & \text { si }\left\|x-x_{j}\right\| \geq \delta \\ 1-\frac{\left\|x-x_{j}\right\|}{\delta} & \text { sinon }\end{cases}
+$$
+et on voit que $\psi_{j}$ est strictement positive sur $B\left(x_{j}, \delta\right)$ et nulle dehors.\\
+On pose alors, pour $x \in K, g(x):=\sum_{j=1}^{p} \varphi_{j}(x) f\left(x_{j}\right) . g$ est continue (car elle est la somme des fonctions continues), et prend ses valeurs dans $K^{*}$ (car $g(x)$ est un barycentre des $f\left(x_{j}\right)$ ). Donc, si on prend la restriction $g_{\mid K^{*}}: K^{*} \rightarrow K^{*}$, par le th\'eor\`eme $5.1.8$, $g$ poss\`ede un point fixe $y \in K^{*}$. De plus,
+$$
+\begin{aligned}
+f(y)-y=f(y)-g(y) &=\sum_{j=1}^{p} \varphi_{j}(y) f(y)-\sum_{j=1}^{p} \varphi_{j}(y) f\left(x_{j}\right) \\
+&=\sum_{j=1}^{p} \varphi_{j}(y)\left(f(y)-f\left(x_{j}\right)\right)
+\end{aligned}
+$$
+Or si $\varphi_{j}(y) \neq 0$ alors $\left\|y-x_{j}\right\|<\delta$, et donc $\left\|f(y)-f\left(x_{j}\right)\right\|<\varepsilon$. Donc, on a, pour tout $j$, $\left\|\varphi_{j}(y)\left(f(y)-f\left(x_{j}\right)\right)\right\| \leq \varepsilon \varphi_{j}(y)$, et donc
+$$
+\|f(y)-y\| \leq \sum_{j=1}^{p}\left\|\varphi_{j}(y)\left(f(y)-f\left(x_{j}\right)\right)\right\| \leq \sum_{j=1}^{p} \varepsilon \varphi_{j}(y)=\varepsilon
+$$
+Donc, pour tout entier $m$, on peut trouver un point $y_{m} \in K$ tel que $\left\|f\left(y_{m}\right)-y_{m}\right\|<2^{-m}$. Et puisque $K$ est compact, de la suite $\left(y_{m}\right)_{m \in \mathbb{Z}}$ on peut extraire une sous-suite $\left(y_{m_{k}}\right)$ qui converge vers un point $y^{*} \in K$. Alors $f$ \'etant continue, la suite $\left(f\left(y_{m_{k}}\right)\right)$ converge vers $f\left(y^{*}\right)$, et on conclut que $f\left(y^{*}\right)=y^{*}$, i.e. $y^{*}$ est un point fixe de $f$ sur $K$.
+\end{dem}
+
+\vfill
+
+
+
+
+\chapter{Application du th\'eor\`eme se point fixe de Brower-Schauder:}
+\section{Cauchy-Arzela:}
+\begin{thm}
+Soient:\\
+E un espace norm\'e de dimension finie,\\
+$U$ un ouvert de $\mathbb{R} \times E$,
+$F$ une fonction continue de $U$ dans $E$, et
+$\left(t_{0}, x_{0}\right)$ un point de $U$\\
+Alors l'\'equation diff\'erentielle $x^{\prime}=F(t, x)$ a une solution au voisinage de $\left(t_{0}, x_{0}\right)$, i.e. Il existe un nombre $\rho>0$ et une fonction $f:\left[t_{0}-\rho, t_{0}+\rho\right] \rightarrow E$ de classe $\mathcal{C}^{1}$ avec $f\left(t_{0}\right)=x_{0}$, telle que pour tout $t \in\left[t_{0}-\rho, t_{0}+\rho\right]$,\\
+1. $(t, f(t)) \in U$\\
+2. $f^{\prime}(t)=F(t, f(t))$
+\end{thm}
+\begin{dem}
+ Soit $M>\left\|F\left(t_{0}, x_{0}\right)\right\|$. Quitte \`a remplacer $U$ par l'ensemble ouvert $\{(t, x) \in U$ : $\|F(t, x)\|<M\}$, on peut supposer que $F$ est major\'ee en norme par $M$ sur $U .$ Il existe donc $r>0$ et $h>0$ tels que $U \supset\left[t_{0}-h, t_{0}+h\right] \times B_{f}\left(x_{0}, r\right)$, et on choisit $\rho=\min \left(h, \frac{r}{M}\right)>0$.
+
+On consid\`ere l'ensemble $K$ des fonctions $M$-Lipschitziennes de l'intervalle $J=\left[t_{0}-\rho, t_{0}+\rho\right]$ dans $E$ qui valent $x_{0}$ en $t_{0}$, que l'on munit de la norme uniforme. Si $f$ et $g$ sont dans $K$ et $s \in[0,1]$, alors $s f+(1-s) g \in K$, donc $K$ est convexe. Si $\left(f_{i}\right)_{i \in \mathbb{N}}$ est une suite de Cauchy de $K$ pour la norme uniforme, alors d'apr\`es le th\'eor\`eme 5.1.8 , il existe une fonction continue $f: J \rightarrow E$ telle que $f_{i}$ converge uniform\'ement vers $f$.
+On a alors $f\left(t_{0}\right)=\lim _{i \rightarrow+\infty} f_{i}\left(t_{0}\right)=x_{0}$ et $\forall t, t^{\prime} \in J,\left\|f(t)-f\left(t^{\prime}\right)\right\|=\lim _{i \rightarrow+\infty}\left\|f_{i}(t)-f_{i}\left(t^{\prime}\right)\right\| \leq$ $M\left|t-t^{\prime}\right|$, et donc $f \in K$. On en d\'eduit que $K$ est ferm\'e pour la norme uniforme dans $\mathcal{C}^{0}(J, E)$. De plus, pour tout $t \in J$ et tout $f \in K$, on a\\
+$$
+\left\|f(t)-x_{0}\right\|=\left\|f(t)-f\left(t_{0}\right)\right\| \leq M\left|t-t_{0}\right| \leq M \rho \leq r
+$$
+ce qui montre que $K(t)=\{f(t): f \in K\}$ est contenu dans la boule $B_{f}\left(x_{0}, r\right)$, et donc $K(t)$ est relativement compact. Et puisque $K$ est uniform\'ement \'equicontinu, %il r\'esulte du th\'eor\`eme 13 que%
+ $K$ est compact.\\
+On peut alors d\'efinir une application $\Phi: K \rightarrow \mathcal{C}^{1}(J, E)$, en posant
+$$
+\Phi(f)(t)=x_{0}+\int_{t_{0}}^{t} F(s, f(s)) \mathrm{d} s
+$$
+En effet, si $f \in K$, alors $f(s) \in B_{f}\left(x_{0}, r\right)$ pour tout $s \in J$, ce qui montre que la fonction $s \mapsto F(s, f(s))$ est bien d\'efinie et continue sur $J$, \`a valeurs dans $E$, et poss\`ede une primitive $\Phi(f)$ de classe $\mathcal{C}^{1}$, valant $x_{0}$ en $t_{0}$. Puisque la fonction $g:=\Phi(f)$ v\'erifie $g^{\prime}(t)=F(t, f(t))$, on a que $\left\|g^{\prime}(t)\right\| \leq M$, c'est-\`a-dire que $g$ est $M$-Lipschitzienne sur $J$. De plus, $g\left(t_{0}\right)=x_{0}$. Donc, $\Phi(K) \subset K$. Enfin, comme $F$ est uniform\'ement continue sur le compact $J \times B_{f}\left(x_{0}, r\right)$, pour tout $\varepsilon>0$ il existe $\delta>0$ tel que pour tout $(s, x)$ et $\left(s^{\prime}, x^{\prime}\right)$ appartenant \`a $J \times B_{f}\left(x_{0}, r\right)$, on ait $\max \left(\left|s-s^{\prime}\right|,\left\|x-x^{\prime}\right\|\right)<\delta \Rightarrow\left\|F(s, x)-F\left(s^{\prime}, x^{\prime}\right)\right\|<\frac{\varepsilon}{\rho}$.\\
+
+Alors, si $f$ et $f_{1}$ appartiennent \`a $K$ et si $\left\|f-f_{1}\right\|<\delta$, on a $\forall s \in J,\left\|F(s, f(s))-F\left(s, f_{1}(s)\right)\right\|<\frac{\varepsilon}{\rho}$. Donc,
+$$
+\begin{aligned}
+\left\|\Phi(f)(t)-\Phi\left(f_{1}\right)(t)\right\| &=\left\|\int_{t_{0}}^{t} F(s, f(s))-F\left(s, f_{1}(s)\right) \mathrm{d} s\right\| \\
+& \leq\left|t-t_{0}\right| \sup _{s \in J}\left\|F(s, f(s))-F\left(s, f_{1}(s)\right)\right\| \\
+& \leq \rho \frac{\varepsilon}{\rho}=\varepsilon
+\end{aligned}
+$$
+pour tout $t \in J$. Ceci montre que $\left\|\Phi(f)-\Phi\left(f_{1}\right)\right\| \leq \varepsilon$, i.e. $\Phi: K \rightarrow K$ est une application continue. Donc, d'apr\`es le Th\'eor\`eme 5.2.1 , il existe un point fixe $f \in K$ de $\Phi$, c'est-\`a-dire que $f$ est une solution au probl\'eme de Cauchy.
+\end{dem}
+\section{Cauchy-Peano:}
+\begin{thm}
+Soit $I$ un intervalle non vide de $R, U$ un ouvert de $R^{n},\left(t_{0}, x_{0}\right) \in I\times U$ et $f$ : $I \times U \longrightarrow R^{n}$ une application continue.\\
+Alors le probl\`eme de Cauchy.
+$$
+x^{\prime}=f(t, x) \quad \text { et } \quad x\left(t_{0}\right)=x_{0}
+$$
+admet au moins une solution locale.
+\end{thm}
+\begin{dem}
+Soit $r, M>0$ tel que:
+$$
+\overline{B\left(x_{0}, r\right)}, \quad J=\left[t_{0}-\frac{r}{M}, t_{0}+\frac{r}{M}\right] \subset I
+$$
+et
+$$
+\sup _{(t, x) \in J \times \overline{B\left(x_{0}, r\right)}}\|f(t, x)\| \leq M
+$$
+On note alors:
+$$
+A=\left\{f: J \longrightarrow \overline{B\left(x_{0}, r\right)} \quad M \text {-lipschitzienneavec }: f\left(t_{0}\right)=x_{0}\right\}
+$$
+et pour $x \in A$ et $t \in J$.
+$$
+x^{*}(t)=x_{0}+\int_{t_{0}}^{t} f(s, x(s)) \mathrm{d} s
+$$
+Le probl\`eme de Cauchy revient \`a trouver un solution locale de l'\'equation int\'egrale:
+$$
+x^{*}(t)=x_{0}+\int_{t_{0}}^{t} f(s, x(s)) \mathrm{d} s
+$$
+i.e \`a chercher un point fixe de l'op\'erateur :
+$$
+\begin{gathered}
+T: A \longrightarrow A \\
+x \longrightarrow \Theta
+\end{gathered}
+$$
+si $x \in A$ et $t \in J$ alors :
+$$
+\left\|x^{*}(t)-x_{0}(t)\right\|=\left\|\int_{t_{0}}^{t} f(s, x(s)) \mathrm{d} s\right\| \leq M\left|t-t_{0}\right| r
+$$
+et si $u, v \in J$ alors:
+$$
+\left\|x^{*}(u)-x^{*}(v)\right\|=\left\|\int_{u}^{v} f(s, x(s)) \mathrm{d} s\right\| \leq M\left|t-t_{0}\right|
+$$
+donc $\boldsymbol{\Theta} \in A$.(i.e) L op\'erateur $T$ est bien d\'efini.
+On v\'erifie ais\'ement que $A$ est convexe et, au moyen du Th\'eor\`eme $d$ 'Ascoli, on v\'erifie que $A$ est compact.\\
+Il reste donc \`a montrer que $T$ est continue.\\
+Soit $x, y \in A$ et $\epsilon>0$, puisque $f$ est uniform\'ement continue sur $J\times \overline{ B\left(x_{0}, r\right)}$, il existe $\eta>0$ tel que:
+$$
+\|x-y\| \leq \eta \Longrightarrow\|f(t, x)-f(t, y)\| \leq \frac{\epsilon}{r}
+$$
+On en d\'eduit que si $\|x-y\| \leq \eta$ on a alors:
+$$
+\left\|x^{*}(t)-y^{*}(t)\right\| \leq\left\|\int_{t_{0}}^{t} f(s, x(s))-f(s, y(s)) \mathrm{d} s\right\| d s \leq \epsilon
+$$
+(i.e) $T$ est continue.
+\end{dem}
+
+\chapter*{conclusion:}
+La th\'eorie du point fixe est d'une importance capitale dans l'\'etude de l'existence de solution pour les \'equations d'op\'erateurs non lin\'eaires.\\
+
+
+ De nombreux th\'eor\`emes d'existence sont obtenus \`a partir des th\'eor\`emes de Banach et Schauder, en transformant le probl\`eme d'existence en un probl\`eme de point fixe. Mais celui de Brouwer est particuli\`erement c\'el\`ebre.\\
+   
+   
+  Le th\'eor\`eme de Banach ne s'appuie pas sur les propri\'et\'es topologiques du domaine de d\'efinition mais sur le fait que la fonction \'etudi\'ee soit contractante. Le r\'esultat de Brouwer est l'un des th\'eor\`emes-clef caract\'erisant la topologie d'un espace euclidien. Il intervient pour \'etablir des r\'esultats fins sur les \'equations diff\'erentielles; il est pr\'esent dans la g\'eom\'etrie diff\'erentielle. Il apparait dans diverses branches, comme la th\'eorie des jeux.\\
+  
+  
+   Ce th\'eor\`eme est g\'en\'eralis\'e en 1930 aux espaces de Banach. Cette g\'en\'eralisation est due \`a Schauder. Ce th\'eor\`eme affirme qu'une application continue sur un convexe compact admet un point fixe, qui n'est pas n\'ecessairement unique, mais qui nous permet de r\'esoudre plusieurs probl\`emes.
+\begin{thebibliography}{00}
+\addcontentsline{toc}{chapter}{Bibliographie:}
+\bibitem{1} J-P.Demailly.\textit{Analyse num\'erique et \'equation diff\'erentilles; collection} Grenoble Sciences presses universitaires de Grenoble,Grenoble (1987).
+\bibitem{2}J.Saint Raymond. \textit{Topologie, calcul diff\'erentiel et variable complexe;} Calvage et Mounet, Paris (2007).
+\bibitem{3}Abdelhaq El Jai.\textit{ El\'ements de topologie et espaces m\'etriques,} Presses Universitaires de Perpignan, 2007.
+\bibitem{4}Sa\"id Asserda. \textit{Fonctions de plusieurs variables r\'eelles,} Universit\'e Ibn Tofail Facult\'e des sciences K\'enitra 26 septembre (2014).
+\end{thebibliography}
+
+\end{document}
+\tableofcontents
+\Blinddocument
+
